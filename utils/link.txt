@@ -24,7 +24,7 @@ b)predizione andamento (probabilmente il mese prossimo ci saranno meno posti in 
 
 
 nota1: il client(js) va a richiamare il loop ogni tot che esegue una richiesta al backend(php) che anrà a lanciare lo script py.
- Poi il client fa la request data a php, poi fa la chart (vedi se rifarla o se aggiornare dinamicamente)
+ Poi il client fa la request data a php, poi fa la chart (aggiornare dinamicamente il valore in rt -> funzione addData -> sotto cè il modo per selezionare la n-esima colonna sia per il data che per il color)
 
 
 nota2: database mysql con xampp locale -> data(ID, data, file) -> file può essere un txt con i dati strutturati dopo aver fatto la manipolazione py
