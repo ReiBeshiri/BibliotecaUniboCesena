@@ -14,16 +14,20 @@ insert into db mysql (https://pynative.com/python-mysql-insert-data-into-databas
 
 feed:
 1)download con bs4 la pagina web
-a)download html page o salvare il file parsato per consistenza dei dati(da tenere in un database interno)
-a.bis) data(ID, data, file)
+a)download html page o salvare il file parsato per consistenza dei dati(da tenere in un database interno) (nota2)
 2)ottieni consistent data dal file parsato
 3)data analysis -> strutturazione analisi e suggerimenti (es. biblioteca piena a gennaio)
 b)predizione andamento (probabilmente il mese prossimo ci saranno meno posti in biblioteca)
-4) opt 1. get data from db
-   opt 2. send data con socket 
-   opt 3. salva su file e poi get da filesys
-5)chart composition (todo progettazione)
+4)client prende i dati dopo una richiesta eseguita al backend(nota1)
+5)chart composition
 
 
 
-/*js va a richiamare il loop ogni tot che richiama lo script py e fa la request data a php, poi fa la chart (vedi se rifarla o se aggiornare dinamicamente)*/
+nota1: il client(js) va a richiamare il loop ogni tot che esegue una richiesta al backend(php) che anrà a lanciare lo script py.
+ Poi il client fa la request data a php, poi fa la chart (vedi se rifarla o se aggiornare dinamicamente)
+
+
+nota2: database mysql con xampp locale -> data(ID, data, file) -> file può essere un txt con i dati strutturati dopo aver fatto la manipolazione py
+	file-> raw data -> lun(11/01/2019) 208 persone, mar(12/01/2019) 153 persone ...
+			   persone in biblioteca ora -> 56
+	       man data -> statistiche

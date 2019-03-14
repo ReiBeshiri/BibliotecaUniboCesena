@@ -1,4 +1,4 @@
-## File last modified by Fizzim: 17.49.02 on 13/03/19
+## File last modified by Fizzim: 12.59.21 on 14/03/19
 <version>
    14.02.26
 </version>
@@ -302,7 +302,7 @@
 5
 </SCounter>
 <TCounter>
-7
+8
 </TCounter>
 <TableVis>
 true
@@ -2092,7 +2092,7 @@ return data
    413.0
    </endPtY>
    <startCtrlPtX>
-   122.0
+   123.0
    </startCtrlPtX>
    <startCtrlPtY>
    398.0
@@ -2120,10 +2120,209 @@ return data
 <textObj>
 data visualization with d3.js/chart.js
    <x>
-   140
+   112
    </x>
    <y>
    372
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
+## START STATE TRANSITION OBJECT
+<transition>
+   <attributes>
+      <name>
+            <status>
+            ABS
+            </status>
+         <value>
+         trans7
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         def_type
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </name>
+      <equation>
+            <status>
+            ABS
+            </status>
+         <value>
+         1
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         1
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         def_type
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         577
+         </x2Obj>
+         <y2Obj>
+         -306
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </equation>
+   </attributes>
+   <startState>
+   js
+   </startState>
+   <endState>
+   python
+   </endState>
+   <startPtX>
+   302.0
+   </startPtX>
+   <startPtY>
+   413.0
+   </startPtY>
+   <endPtX>
+   427.0
+   </endPtX>
+   <endPtY>
+   206.0
+   </endPtY>
+   <startCtrlPtX>
+   353.0
+   </startCtrlPtX>
+   <startCtrlPtY>
+   349.0
+   </startCtrlPtY>
+   <endCtrlPtY>
+   405.0
+   </endCtrlPtY>
+   <endCtrlPtY>
+   258.0
+   </endCtrlPtY>
+   <startStateIndex>
+   29
+   </startStateIndex>
+   <endStateIndex>
+   13
+   </endStateIndex>
+   <page>
+   1
+   </page>
+   <color>
+   -16777216
+   </color>
+   <pageSX>
+   0.0
+   </pageSX>
+   <pageSY>
+   0.0
+   </pageSY>
+   <pageSCX>
+   0.0
+   </pageSCX>
+   <pageSCY>
+   0.0
+   </pageSCY>
+   <pageEX>
+   0.0
+   </pageEX>
+   <pageEY>
+   0.0
+   </pageEY>
+   <pageECX>
+   0.0
+   </pageECX>
+   <pageECY>
+   0.0
+   </pageECY>
+   <stub>
+   false
+   </stub>
+</transition>
+## END STATE TRANSITION OBJECT
+<textObj>
+js periodically send to  php req to exec the py script
+   <x>
+   277
+   </x>
+   <y>
+   296
    </y>
    <page>
    1

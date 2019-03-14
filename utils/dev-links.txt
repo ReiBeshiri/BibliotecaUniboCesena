@@ -1,0 +1,5 @@
+Resize -> https://stackoverflow.com/questions/19847582/chart-js-canvas-resize, https://jsfiddle.net/2s034Lzw/1/
+
+
+call script from js (usa nodejs)-> https://stackoverflow.com/questions/52174867/call-python-script-from-local-javascript-app
+php call script(prova questo + semplice) : http://php.net/manual/en/function.exec.php; 				https://stackoverflow.com/questions/11875820/checking-exec-runs-successfully-or-not
