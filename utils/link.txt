@@ -1,0 +1,29 @@
+Visualization:
+https://www.chartjs.org/
+https://c3js.org/ --> d3.js based
+	C3 is a simple wrapper around the D3.js
+d3.js -> csv format e altro
+
+
+Data analysis Python:
+https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+https://selenium-python.readthedocs.io/installation.html#introduction
+
+python:
+insert into db mysql (https://pynative.com/python-mysql-insert-data-into-database-table/)
+
+feed:
+1)download con bs4 la pagina web
+a)download html page o salvare il file parsato per consistenza dei dati(da tenere in un database interno)
+a.bis) data(ID, data, file)
+2)ottieni consistent data dal file parsato
+3)data analysis -> strutturazione analisi e suggerimenti (es. biblioteca piena a gennaio)
+b)predizione andamento (probabilmente il mese prossimo ci saranno meno posti in biblioteca)
+4) opt 1. get data from db
+   opt 2. send data con socket 
+   opt 3. salva su file e poi get da filesys
+5)chart composition (todo progettazione)
+
+
+
+/*js va a richiamare il loop ogni tot che richiama lo script py e fa la request data a php, poi fa la chart (vedi se rifarla o se aggiornare dinamicamente)*/
