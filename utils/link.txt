@@ -1,5 +1,6 @@
 Visualization:
 https://www.chartjs.org/
+https://www.chartjs.org/docs/latest/developers/updates.html -> dinamic update
 https://c3js.org/ --> d3.js based
 	C3 is a simple wrapper around the D3.js
 d3.js -> csv format e altro
