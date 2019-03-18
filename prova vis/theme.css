@@ -1,3 +1,23 @@
+#terzo_grafico{
+  float: left;
+  padding-top: 0.5%;
+  padding-right: 1%;
+}
+#secondo_grafico{
+  float: left;
+  padding-top: 0.5%;
+  padding-right: 1%;
+}
+#quarto_grafico{
+  float: left;
+  padding-top: 0.5%;
+  padding-right: 1%;
+}
+#quinto_grafico{
+  float: left;
+  padding-top: 0.5%;
+  padding-right: 1%;
+}
 p{
   font-size: 80%;
 }

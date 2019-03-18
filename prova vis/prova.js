@@ -1,5 +1,5 @@
 var chart;
-var max_posti_in_biblioteca = 123; //max posti = 2499 -> 24 + 99 = 123
+var max_posti_in_biblioteca = 123; //max posti = 2500 -> 2499 => 24 + 99 = 123
 $(document).ready(function() {
 
   //inizio counter
@@ -32,36 +32,28 @@ $(document).ready(function() {
        new_span.innerText = display_str[i];
        display_div.appendChild(new_span);
      }
-   },10);
-   ///////////////fine counter_lis
+   },100);
+   //fine counter_lis
 
-  graph("myChart", "bar", 213, 129, 159, 200);
-  /*graph("myChart2", "pie", 113, 229, 259, 100);
-  graph("myChart3", "line", 113, 229, 259, 100);*/
+  //id html chart, tipo di chart, n valori (lun,mar,mer,gio,ven oppure altri poi decidi)
+  graph("myChart", "bar", 2130, 1290, 1590, 2000);
+  graph("myChart2", "pie", 1130, 2290, 2490, 1000);
+  graph("myChart3", "line", 1600, 2100, 2490, 981);
+  graph("myChart4", "bar", 1430, 1990, 2190, 1260);
+  graph("myChart5", "line", 1530, 1800, 2590, 1110);
 
   /*
-  console.log($(document).width());
-  console.log($(window).width());
-  console.log(screen.width); //QUESTO è MEGLIO
-  console.log($(document).height());
-  console.log($(window).height());
-  console.log(screen.height); //QUESTO è MEGLIO
+  console.log(screen.width);
+  console.log(screen.height);
   */
-
-  /*var run=new ActiveXObject('WSCRIPT.Shell').Run("type NUL > 1.txt");
-  /*var shell = WScript.CreateObject("WScript.Shell");
-  shell.Run("type NUL > 1.txt");
-  /*const execSync = require('child_process').execSync;
-  // import { execSync } from 'child_process';  // replace ^ if using ES modules
-  execSync("type NUL > 1.txt");  // the default is 'buffer'*/
 
 //code before the pause
 setInterval(function(){
-    var l1 = Math.random()*500 * Math.random();
+    var l1 = Math.random()*2500;
     console.log(Math.round(l1));
     var data = l1;
-    addData(chart, "new data", data);
-  }, 10000);
+    addData(chart, "new", data);
+  }, 5000);
 });
 
 //crea il grafico a partire da id nel html, tipo grafico e valori
