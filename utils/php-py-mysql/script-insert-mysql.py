@@ -3,7 +3,7 @@
 
 # In[7]:
 
-
+import sys
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -16,7 +16,7 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 sql = "INSERT INTO tabella (ID, data, file) VALUES (%s ,%s, %s)"
-val = ("1" , "201", "dataprova")
+val = ("1" , "201", sys.argv[1])
 mycursor.execute(sql, val)
 
 mydb.commit()

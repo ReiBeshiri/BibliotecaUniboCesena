@@ -1,14 +1,13 @@
 Visualization:
 https://www.chartjs.org/
 https://www.chartjs.org/docs/latest/developers/updates.html -> dinamic update
-https://c3js.org/ --> d3.js based
-	C3 is a simple wrapper around the D3.js
-d3.js -> csv format e altro
+utilizza canvas, riduce il costo complessivo della visualizzazione
 
 
 Data analysis Python:
 https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 https://selenium-python.readthedocs.io/installation.html#introduction
+bs4 per parsing html
 
 python:
 insert into db mysql (https://pynative.com/python-mysql-insert-data-into-database-table/)

@@ -1,6 +1,6 @@
 <?php
 //DA USARE PER LANCIARE GLI SCRIPT PYTHON DA PHP(BACKEND)
-exec("python ./script-insert-mysql.py", $output, $return);
+exec("python ./script-insert-mysql.py parametri", $output, $return);
 // Return will return non-zero upon an error
 if (!$return) {
     echo "script runned Successfully"; //
