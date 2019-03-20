@@ -13,21 +13,27 @@ python:
 insert into db mysql (https://pynative.com/python-mysql-insert-data-into-database-table/)
 
 feed:
-1)download con bs4 la pagina web
-a)download html page o salvare il file parsato per consistenza dei dati(da tenere in un database interno) (nota2)
-2)ottieni consistent data dal file parsato
-3)data analysis -> strutturazione analisi e suggerimenti (es. biblioteca piena a gennaio)
-b)predizione andamento (probabilmente il mese prossimo ci saranno meno posti in biblioteca)
-4)client prende i dati dopo una richiesta eseguita al backend(nota1)
-5)chart composition
+1)esegui il login su liber8portal con selenium
+2)download con bs4 la pagina web
+	a)download html page
+3)ottieni consistent data dal file parsato
+	b)per consistenza dei dati(da tenere in un database interno) (nota2)
+4)data analysis -> strutturazione analisi e suggerimenti (es. biblioteca piena a gennaio)
+	c)predizione andamento (probabilmente il mese prossimo ci saranno meno posti in biblioteca)
+5)client prende i dati dopo una richiesta eseguita al backend (nota1)
+6)chart composition
 
 
 
-nota1: il client(js) va a richiamare il loop ogni tot che esegue una richiesta al backend(php) che anrà a lanciare lo script py.
- Poi il client fa la request data a php, poi fa la chart (aggiornare dinamicamente il valore in rt -> funzione addData -> sotto cè il modo per selezionare la n-esima colonna sia per il data che per il color)
+nota1: il client(js) va a richiamare in loop ogni tot che esegue una richiesta al backend(php) che anrà a lanciare lo script py.
+ Poi il client fa la request data a php per ottenere eventuali nuovi dati, poi fa la chart (aggiornare dinamicamente il valore in rt -> funzione addData -> sotto cè il modo per selezionare la n-esima colonna sia per il data che per il color)
 
 
-nota2: database mysql con xampp locale -> data(ID, data, file) -> file può essere un txt con i dati strutturati dopo aver fatto la manipolazione py
+nota2: database mysql con xampp locale -> data(ID, data, ora, file) -> file può essere un txt con i dati strutturati dopo aver fatto la manipolazione py
 	file-> raw data -> lun(11/01/2019) 208 persone, mar(12/01/2019) 153 persone ...
 			   persone in biblioteca ora -> 56
 	       man data -> statistiche
+
+
+FILE-> vedi se nel db mettere il percorso di un txt o effettivamente fare:
+	ID	data	ora	personeEntrate	personeUscite
