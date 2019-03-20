@@ -5,3 +5,8 @@ php call script(usa qst) : http://php.net/manual/en/function.exec.php; 				https
 
 
 counter: https://www.codementor.io/jamesezechukwu/how-to-create-a-simple-counter-using-javascript-html-css-bxcjgbbxa
+
+selenium:
+https://selenium-python.readthedocs.io/navigating.html
+wait link clickable-> https://stackoverflow.com/questions/40345935/python-selenium-to-click-a-link
+https://selenium-python.readthedocs.io/locating-elements.html
