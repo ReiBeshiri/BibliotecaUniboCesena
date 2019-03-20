@@ -1,4 +1,4 @@
-## File last modified by Fizzim: 12.59.21 on 14/03/19
+## File last modified by Fizzim: 16.51.01 on 20/03/19
 <version>
    14.02.26
 </version>
@@ -302,7 +302,7 @@
 5
 </SCounter>
 <TCounter>
-8
+11
 </TCounter>
 <TableVis>
 true
@@ -404,7 +404,7 @@ fzm_globalTable
          0
          </x2Obj>
          <y2Obj>
-         25
+         30
          </y2Obj>
          <page>
          1
@@ -412,16 +412,16 @@ fzm_globalTable
       </name>
    </attributes>
    <x0>
-   26
+   13
    </x0>
    <y0>
-   92
+   89
    </y0>
    <x1>
-   156
+   143
    </x1>
    <y1>
-   222
+   219
    </y1>
    <reset>
    false
@@ -640,34 +640,34 @@ fzm_globalTable
    webPage
    </endState>
    <startPtX>
-   404.0
+   407.0
    </startPtX>
    <startPtY>
-   168.0
+   134.0
    </startPtY>
    <endPtX>
-   155.0
+   142.0
    </endPtX>
    <endPtY>
-   168.0
+   142.0
    </endPtY>
    <startCtrlPtX>
-   350.0
+   300.0
    </startCtrlPtX>
    <startCtrlPtY>
-   137.0
+   93.0
    </startCtrlPtY>
    <endCtrlPtY>
-   231.0
+   210.0
    </endCtrlPtY>
    <endCtrlPtY>
-   123.0
+   84.0
    </endCtrlPtY>
    <startStateIndex>
-   17
+   20
    </startStateIndex>
    <endStateIndex>
-   1
+   35
    </endStateIndex>
    <page>
    1
@@ -707,22 +707,22 @@ fzm_globalTable
 <textObj>
 get Data (bs4)
    <x>
-   249
+   231
    </x>
    <y>
-   124
+   206
    </y>
    <page>
    1
    </page>
 </textObj>
 <textObj>
-parsed data
+parsed data /
    <x>
-   254
+   415
    </x>
    <y>
-   162
+   28
    </y>
    <page>
    1
@@ -961,16 +961,16 @@ manipulate data
       </name>
    </attributes>
    <x0>
-   742
+   756
    </x0>
    <y0>
-   228
+   226
    </y0>
    <x1>
-   872
+   886
    </x1>
    <y1>
-   358
+   356
    </y1>
    <reset>
    false
@@ -1112,22 +1112,22 @@ manipulate data
    168.0
    </startPtY>
    <endPtX>
-   784.0
+   798.0
    </endPtX>
    <endPtY>
-   231.0
+   229.0
    </endPtY>
    <startCtrlPtX>
-   645.0
+   671.0
    </startCtrlPtX>
    <startCtrlPtY>
-   114.0
+   136.0
    </startCtrlPtY>
    <endCtrlPtY>
-   760.0
+   682.0
    </endCtrlPtY>
    <endCtrlPtY>
-   164.0
+   148.0
    </endCtrlPtY>
    <startStateIndex>
    1
@@ -1173,10 +1173,10 @@ manipulate data
 <textObj>
 push data to DB
    <x>
-   601
+   619
    </x>
    <y>
-   142
+   145
    </y>
    <page>
    1
@@ -1243,16 +1243,16 @@ push data to DB
       </name>
    </attributes>
    <x0>
-   215
+   202
    </x0>
    <y0>
-   410
+   412
    </y0>
    <x1>
-   345
+   332
    </x1>
    <y1>
-   540
+   542
    </y1>
    <reset>
    false
@@ -1330,7 +1330,7 @@ push data to DB
          0
          </x2Obj>
          <y2Obj>
-         31
+         28
          </y2Obj>
          <page>
          1
@@ -1338,16 +1338,16 @@ push data to DB
       </name>
    </attributes>
    <x0>
-   493
+   505
    </x0>
    <y0>
-   409
+   405
    </y0>
    <x1>
-   623
+   635
    </x1>
    <y1>
-   539
+   535
    </y1>
    <reset>
    false
@@ -1483,31 +1483,31 @@ push data to DB
    DB
    </endState>
    <startPtX>
-   622.0
+   634.0
    </startPtX>
    <startPtY>
-   462.0
+   481.0
    </startPtY>
    <endPtX>
-   807.0
+   821.0
    </endPtX>
    <endPtY>
-   358.0
+   356.0
    </endPtY>
    <startCtrlPtX>
-   717.0
+   779.0
    </startCtrlPtX>
    <startCtrlPtY>
-   509.0
+   503.0
    </startCtrlPtY>
    <endCtrlPtY>
-   804.0
+   818.0
    </endCtrlPtY>
    <endCtrlPtY>
-   401.0
+   399.0
    </endCtrlPtY>
    <startStateIndex>
-   35
+   1
    </startStateIndex>
    <endStateIndex>
    9
@@ -1548,12 +1548,12 @@ push data to DB
 </transition>
 ## END STATE TRANSITION OBJECT
 <textObj>
-get data
+request data
    <x>
-   742
+   658
    </x>
    <y>
-   465
+   496
    </y>
    <page>
    1
@@ -1665,10 +1665,10 @@ get data
             </status>
          </resetval>
          <x2Obj>
-         521
+         529
          </x2Obj>
          <y2Obj>
-         -460
+         -463
          </y2Obj>
          <page>
          1
@@ -1682,28 +1682,28 @@ get data
    php
    </endState>
    <startPtX>
-   344.0
+   331.0
    </startPtX>
    <startPtY>
-   463.0
+   465.0
    </startPtY>
    <endPtX>
-   493.0
+   505.0
    </endPtX>
    <endPtY>
-   462.0
+   458.0
    </endPtY>
    <startCtrlPtX>
-   394.0
+   381.0
    </startCtrlPtX>
    <startCtrlPtY>
-   410.0
+   412.0
    </startCtrlPtY>
    <endCtrlPtY>
-   455.0
+   467.0
    </endCtrlPtY>
    <endCtrlPtY>
-   419.0
+   415.0
    </endCtrlPtY>
    <startStateIndex>
    35
@@ -1864,10 +1864,10 @@ request data
             </status>
          </resetval>
          <x2Obj>
-         520
+         526
          </x2Obj>
          <y2Obj>
-         -482
+         -484
          </y2Obj>
          <page>
          1
@@ -1881,28 +1881,28 @@ request data
    js
    </endState>
    <startPtX>
-   493.0
+   505.0
    </startPtX>
    <startPtY>
-   485.0
+   481.0
    </startPtY>
    <endPtX>
-   344.0
+   331.0
    </endPtX>
    <endPtY>
-   486.0
+   488.0
    </endPtY>
    <startCtrlPtX>
-   462.0
+   474.0
    </startCtrlPtX>
    <startCtrlPtY>
-   518.0
+   514.0
    </startCtrlPtY>
    <endCtrlPtY>
-   389.0
+   376.0
    </endCtrlPtY>
    <endCtrlPtY>
-   537.0
+   539.0
    </endCtrlPtY>
    <startStateIndex>
    17
@@ -2080,28 +2080,28 @@ return data
    js
    </endState>
    <startPtX>
-   215.0
+   202.0
    </startPtX>
    <startPtY>
-   463.0
+   465.0
    </startPtY>
    <endPtX>
-   257.0
+   244.0
    </endPtX>
    <endPtY>
-   413.0
+   415.0
    </endPtY>
    <startCtrlPtX>
-   123.0
+   110.0
    </startCtrlPtX>
    <startCtrlPtY>
-   398.0
+   400.0
    </startCtrlPtY>
    <endCtrlPtY>
-   235.0
+   222.0
    </endCtrlPtY>
    <endCtrlPtY>
-   331.0
+   333.0
    </endCtrlPtY>
    <startStateIndex>
    19
@@ -2118,7 +2118,7 @@ return data
 </transition>
 ## START LOOPBACK TRANSITION OBJECT
 <textObj>
-data visualization with d3.js/chart.js
+data visualization with chart.js
    <x>
    112
    </x>
@@ -2252,10 +2252,10 @@ data visualization with d3.js/chart.js
    python
    </endState>
    <startPtX>
-   302.0
+   289.0
    </startPtX>
    <startPtY>
-   413.0
+   415.0
    </startPtY>
    <endPtX>
    427.0
@@ -2264,10 +2264,10 @@ data visualization with d3.js/chart.js
    206.0
    </endPtY>
    <startCtrlPtX>
-   353.0
+   340.0
    </startCtrlPtX>
    <startCtrlPtY>
-   349.0
+   351.0
    </startCtrlPtY>
    <endCtrlPtY>
    405.0
@@ -2319,10 +2319,432 @@ data visualization with d3.js/chart.js
 <textObj>
 js periodically send to  php req to exec the py script
    <x>
-   277
+   272
    </x>
    <y>
    296
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
+## START STATE TRANSITION OBJECT
+<transition>
+   <attributes>
+      <name>
+            <status>
+            ABS
+            </status>
+         <value>
+         trans8
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         def_type
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </name>
+      <equation>
+            <status>
+            ABS
+            </status>
+         <value>
+         1
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         1
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         def_type
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         -282
+         </x2Obj>
+         <y2Obj>
+         -147
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </equation>
+   </attributes>
+   <startState>
+   webPage
+   </startState>
+   <endState>
+   python
+   </endState>
+   <startPtX>
+   142.0
+   </startPtX>
+   <startPtY>
+   165.0
+   </startPtY>
+   <endPtX>
+   404.0
+   </endPtX>
+   <endPtY>
+   157.0
+   </endPtY>
+   <startCtrlPtX>
+   200.0
+   </startCtrlPtX>
+   <startCtrlPtY>
+   212.0
+   </startCtrlPtY>
+   <endCtrlPtY>
+   364.0
+   </endCtrlPtY>
+   <endCtrlPtY>
+   179.0
+   </endCtrlPtY>
+   <startStateIndex>
+   1
+   </startStateIndex>
+   <endStateIndex>
+   18
+   </endStateIndex>
+   <page>
+   1
+   </page>
+   <color>
+   -16777216
+   </color>
+   <pageSX>
+   0.0
+   </pageSX>
+   <pageSY>
+   0.0
+   </pageSY>
+   <pageSCX>
+   0.0
+   </pageSCX>
+   <pageSCY>
+   0.0
+   </pageSCY>
+   <pageEX>
+   0.0
+   </pageEX>
+   <pageEY>
+   0.0
+   </pageEY>
+   <pageECX>
+   0.0
+   </pageECX>
+   <pageECY>
+   0.0
+   </pageECY>
+   <stub>
+   false
+   </stub>
+</transition>
+## END STATE TRANSITION OBJECT
+<textObj>
+login (selenium)
+   <x>
+   229
+   </x>
+   <y>
+   94
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
+## START STATE TRANSITION OBJECT
+<transition>
+   <attributes>
+      <name>
+            <status>
+            ABS
+            </status>
+         <value>
+         trans10
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         def_type
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </name>
+      <equation>
+            <status>
+            ABS
+            </status>
+         <value>
+         1
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         1
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         def_type
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         231
+         </x2Obj>
+         <y2Obj>
+         -398
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </equation>
+   </attributes>
+   <startState>
+   DB
+   </startState>
+   <endState>
+   php
+   </endState>
+   <startPtX>
+   771.0
+   </startPtX>
+   <startPtY>
+   332.0
+   </startPtY>
+   <endPtX>
+   619.0
+   </endPtX>
+   <endPtY>
+   428.0
+   </endPtY>
+   <startCtrlPtX>
+   723.0
+   </startCtrlPtX>
+   <startCtrlPtY>
+   323.0
+   </startCtrlPtY>
+   <endCtrlPtY>
+   668.0
+   </endCtrlPtY>
+   <endCtrlPtY>
+   329.0
+   </endCtrlPtY>
+   <startStateIndex>
+   14
+   </startStateIndex>
+   <endStateIndex>
+   32
+   </endStateIndex>
+   <page>
+   1
+   </page>
+   <color>
+   -16777216
+   </color>
+   <pageSX>
+   0.0
+   </pageSX>
+   <pageSY>
+   0.0
+   </pageSY>
+   <pageSCX>
+   0.0
+   </pageSCX>
+   <pageSCY>
+   0.0
+   </pageSCY>
+   <pageEX>
+   0.0
+   </pageEX>
+   <pageEY>
+   0.0
+   </pageEY>
+   <pageECX>
+   0.0
+   </pageECX>
+   <pageECY>
+   0.0
+   </pageECY>
+   <stub>
+   false
+   </stub>
+</transition>
+## END STATE TRANSITION OBJECT
+<textObj>
+send data
+   <x>
+   705
+   </x>
+   <y>
+   326
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
+<textObj>
+(xampp)
+   <x>
+   802
+   </x>
+   <y>
+   302
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
+<textObj>
+(backend)
+   <x>
+   550
+   </x>
+   <y>
+   477
    </y>
    <page>
    1
