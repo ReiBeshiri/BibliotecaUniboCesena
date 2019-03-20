@@ -1,10 +1,20 @@
+Visualization:
+https://www.chartjs.org/
+https://www.chartjs.org/docs/latest/developers/updates.html -> dinamic update
+utilizza canvas, riduce il costo complessivo della visualizzazione
 Resize -> https://stackoverflow.com/questions/19847582/chart-js-canvas-resize, https://jsfiddle.net/2s034Lzw/1/
+counter-> https://www.codementor.io/jamesezechukwu/how-to-create-a-simple-counter-using-javascript-html-css-bxcjgbbxa
 
+Data analysis Python:
+https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+https://selenium-python.readthedocs.io/installation.html#introduction
+bs4 per parsing html
 
-php call script(usa qst) : http://php.net/manual/en/function.exec.php; 				https://stackoverflow.com/questions/11875820/checking-exec-runs-successfully-or-not
+python:
+insert into db mysql (https://pynative.com/python-mysql-insert-data-into-database-table/)
 
-
-counter: https://www.codementor.io/jamesezechukwu/how-to-create-a-simple-counter-using-javascript-html-css-bxcjgbbxa
+php call script(usa qst) :
+http://php.net/manual/en/function.exec.php; 				https://stackoverflow.com/questions/11875820/checking-exec-runs-successfully-or-not
 
 selenium:
 https://selenium-python.readthedocs.io/navigating.html
