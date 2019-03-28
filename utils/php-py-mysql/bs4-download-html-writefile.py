@@ -20,14 +20,4 @@ file.write("append")
 file.close()
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
+# self.request.url
