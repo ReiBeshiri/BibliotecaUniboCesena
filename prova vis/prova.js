@@ -1,3 +1,8 @@
+var chart1;
+var chart2;
+var chart3;
+var chart4;
+var chart5;
 var chart;
 var max_posti_in_biblioteca = 123; //max posti = 2500 -> 2499 => 24 + 99 = 123
 $(document).ready(function() {
@@ -37,10 +42,15 @@ $(document).ready(function() {
 
   //id html chart, tipo di chart, n valori (lun,mar,mer,gio,ven oppure altri poi decidi)
   graph("myChart", "bar", 2130, 1290, 1590, 2000);
+  chart1 = chart;
   graph("myChart2", "pie", 1130, 2290, 2490, 1000);
+  chart2 = chart;
   graph("myChart3", "line", 1600, 2100, 2490, 981);
+  chart3 = chart;
   graph("myChart4", "bar", 1430, 1990, 2190, 1260);
+  chart4 = chart;
   graph("myChart5", "line", 1530, 1800, 2590, 1110);
+  chart5 = chart;
 
   /*
   console.log(screen.width);
@@ -52,7 +62,7 @@ setInterval(function(){
     var l1 = Math.random()*2500;
     console.log(Math.round(l1));
     var data = l1;
-    addData(chart, "new", data);
+    addData(chart1, "new", data);
   }, 5000);
 });
 
