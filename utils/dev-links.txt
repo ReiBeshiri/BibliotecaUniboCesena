@@ -14,9 +14,17 @@ python:
 insert into db mysql (https://pynative.com/python-mysql-insert-data-into-database-table/)
 
 php call script(usa qst) :
-http://php.net/manual/en/function.exec.php; 				https://stackoverflow.com/questions/11875820/checking-exec-runs-successfully-or-not
+http://php.net/manual/en/function.exec.php; https://stackoverflow.com/questions/11875820/checking-exec-runs-successfully-or-not
 
 selenium:
 https://selenium-python.readthedocs.io/navigating.html
 wait link clickable-> https://stackoverflow.com/questions/40345935/python-selenium-to-click-a-link
 https://selenium-python.readthedocs.io/locating-elements.html
+https://stackoverflow.com/questions/7534622/select-iframe-using-python-selenium
+https://seleniumhq.github.io/selenium/docs/api/py/webdriver_remote/selenium.webdriver.remote.webelement.html
+
+move file to another dir:
+https://stackoverflow.com/questions/8858008/how-to-move-a-file-in-python
+	->dopo aver scaricato(bisogna dare i permessi per i file xml) il file PeopleFootfall.xml lo sposto dalla dir download a quella Desktop/tirocinio/tirocinio...
+
+import xlsx python: https://stackoverflow.com/questions/43964513/importing-an-excel-file-to-python

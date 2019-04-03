@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[7]:
-
 import sys
 import mysql.connector
 
@@ -22,10 +17,3 @@ mycursor.execute(sql, val)
 mydb.commit()
 
 print(mycursor.rowcount, "record inserted.")
-
-
-# In[ ]:
-
-
-
-
