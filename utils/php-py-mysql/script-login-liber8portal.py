@@ -15,7 +15,7 @@ import mysql.connector
 
 #ottengo l'ora la data e il giorno
 now = datetime.datetime.now()
-hour = now.hour - 8
+hour = now.hour - 8 #alle 8:00 faccio - 8 così va a 0 che sono le 7:00 nel dataframe
 day = datetime.datetime.today().weekday()
 if(day == 0):
     day = "lun"
@@ -54,20 +54,17 @@ frame = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "iframe")))
 
 driver.switch_to.frame(frame)
 
-driver.find_element_by_partial_link_text("mar").click() ###il giorno della settimana da scaricare
+driver.find_element_by_partial_link_text("mar").click() ###il giorno della settimana da scaricare ################dopo sarà la var day
 
 time.sleep(5)
 
 driver.find_element_by_id('ctl00_MainContent_rvDeviceStats_ctl09_ctl04_ctl00_ButtonLink').click()
 driver.find_element_by_link_text('Excel').click()
 time.sleep(5)
-#driver.quit()
 
 shutil.move(r'C:\Users\Rey\Downloads\PeopleFootfall.xlsx', r'C:\Users\Rey\Desktop\tirocinio\tirocinio\utils\php-py-mysql\data.xlsx')
 #os.remove("C:\Users\Rey\Desktop\tirocinio\tirocinio\utils\php-py-mysql/data.xml")
 data = pd.read_excel('data.xlsx')
-
-totale = data.iloc[96] #get total of dataframe before filtering
 
 #filtering useless data
 data = data.replace(to_replace='None', value=np.nan).replace(to_replace='0.00', value=np.nan).replace(to_replace='1.00', value=np.nan).replace(to_replace='2.00', value=np.nan).replace(to_replace='3.00', value=np.nan).replace(to_replace='4.00', value=np.nan).replace(to_replace='5.00', value=np.nan).replace(to_replace='6.00', value=np.nan).replace(to_replace='19.00', value=np.nan).replace(to_replace='20.00', value=np.nan).replace(to_replace='21.00', value=np.nan).replace(to_replace='22.00', value=np.nan).replace(to_replace='23.00', value=np.nan).dropna()
@@ -87,10 +84,13 @@ print(data.iloc[9]) -> 16:00
 print(data.iloc[10]) -> 17:00
 print(data.iloc[11]) -> 18:00
 """
-hour = 0
+hour = 11 ###################################da togliere dopo
 row = data.iloc[hour]
 #print(row.iloc[2])#persone in
 #print(row.iloc[3])#persone out
+
+totale_in = data['Persone in'].sum()
+totale_out = data['Persone fuori'].sum()
 
 if(hour == 0):
     persone_in = row.iloc[2]
@@ -98,7 +98,7 @@ if(hour == 0):
 elif(hour == 11):
     persone_in = row.iloc[2]
     err = data.iloc[0]
-    persone_out = totale.iloc[2] - totale.iloc[3] + err.iloc[3] + row.iloc[3]
+    persone_out = totale_in - totale_out + err.iloc[3] + row.iloc[3]
 else:
     persone_in = row.iloc[2]
     persone_out = row.iloc[3]
@@ -113,9 +113,12 @@ mydb = mysql.connector.connect(
 )
 hour+=7 #riporto l'ora esatta 0 -> 0+7 = 7
 hour = str(hour) + ':00'
+date = '2019-04-02'
+####my sql insert in db
 mycursor = mydb.cursor()
 sql = "INSERT INTO library (ora, giorno, data, entrate, uscite) VALUES (%s ,%s, %s, %s, %s)"
 val = (str(hour), str(day), str(date), str(persone_in), str(persone_out))
 mycursor.execute(sql, val)
 mydb.commit()
 print(mycursor.rowcount, "record inserted.")
+driver.quit()
