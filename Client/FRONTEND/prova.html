@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <link rel="stylesheet" type="text/css" href="theme.css">
+    <title>Page Title</title>
+  </head>
+<body>
+
+  <div class="people_counter">
+    <div class="counter_container" id="id_main_counter">
+      <div class="counter_inner" id="counter_id"></div>
+    </div>
+
+    <div class="suggest">
+      <h3>situazione</h3>
+      <p>la biblioteca è piena</p>
+      <h3>dati</h3>
+      <p>12% persone in più rispetto a ieri</p>
+      <h3>dataset</h3>
+      <p>dataset</p>
+      <h3>andameno</h3>
+      <p>012345678910111213141516171819202122</p>
+      <h3>suggerimento</h3>
+      <p>solitamente martedì non c'è tanta gente</p>
+    </div>
+  </div>
+
+  <div style= " max-width:77%; max-height:500px " class="graph">
+    <canvas id="ChartDay" height="800" style="border:1px solid #000000;" class="center"> </canvas>
+  </div>
+
+  <div style= " max-width:30%; max-height:170px" class="graph" id="secondo_grafico">
+    <canvas id="ChartWeek" height="800" style="border:1px solid #000000;" class="center"> </canvas>
+  </div>
+
+  <div style= " max-width:30%; max-height:170px" class="graph" id="terzo_grafico">
+    <canvas id="ChartMonth" height="800" style="border:1px solid #000000;" class="center"> </canvas>
+  </div>
+
+  <div style= " max-width:50%; max-height:170px" class="graph" id="quarto_grafico">
+    <canvas id="ChartYear" height="800" width="900" style="border:1px solid #000000;" class="center"> </canvas>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity=
+   "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="./prova.js"></script>
+</body>
+</html>
