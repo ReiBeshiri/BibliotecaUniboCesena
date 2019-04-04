@@ -1,0 +1,11 @@
+Inizialmente ottengo la data e l'ora corrente, che serviranno per estrapolare i dati corretti dal dataframe e inserire correttamente la query sql.
+Faccio avviare con selenium chrome, successivamente faccio il login di liber8 inserendo le credenziali.
+Dopo aver navigato fino alla pagina di interesse mi scarico il file .xlsx(excell) della tabella dei dati.
+Con pandas leggo il file e lo salvo in un dataframe.
+Dopo aver ottenuto il dataframe filtro i dati superflui così da ottenere un dataframe con i dati della biblioteca delle ore che mi servono.
+Prendo la row relativa all'ora corrente e in base all'ora eseguo un'operazione.
+Se sono le 7 (row[0] del dataframe, quindi hour-8 perchè alle 8 prendo i dati delle 7) prendo le persone in e metto le persone out = 0. (Sostanzialmente perchè non mi fido dei dati)
+Se sono le 18 (11° riga) prendo le persone in e calcolo le persone out in modo da "calibrare" i dati errati.
+Negli altri casi prendo le persone in e out dal dataframe.
+Successivamente apro una connessione con mysql (aggiusto l'ora -> hour + 7) ed eseguo la query.
+Una volta inseriti i dati correttamente stampo "n record inserted." sulla console e chiudo chrome.

@@ -84,7 +84,7 @@ print(data.iloc[9]) -> 16:00
 print(data.iloc[10]) -> 17:00
 print(data.iloc[11]) -> 18:00
 """
-hour = 11 ###################################da togliere dopo
+hour = 0 ###################################da togliere dopo
 row = data.iloc[hour]
 #print(row.iloc[2])#persone in
 #print(row.iloc[3])#persone out
@@ -113,7 +113,7 @@ mydb = mysql.connector.connect(
 )
 hour+=7 #riporto l'ora esatta 0 -> 0+7 = 7
 hour = str(hour) + ':00'
-date = '2019-04-02'
+date = '2019-04-02'###############da togliere dopo
 ####my sql insert in db
 mycursor = mydb.cursor()
 sql = "INSERT INTO library (ora, giorno, data, entrate, uscite) VALUES (%s ,%s, %s, %s, %s)"

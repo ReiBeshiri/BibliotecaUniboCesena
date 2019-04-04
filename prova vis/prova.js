@@ -262,7 +262,7 @@ $(document).ready(function() {
     dataset.data.push(data);
     i++
   });
-  //console.log(chart.data.datasets[0].data[n]); //prendi la colonna n (a partire da desrtra).
+  //console.log(chart.data.datasets[0].data[n]); //prendi la colonna n (a partire da destra).
   //chart.data.datasets[0].backgroundColor[n];   //prendi l'array della colonna n che indica il colore in background della colonna.
   //chart.data.datasets[0].borderColor[n] //prendi l'array della colonna n che indica il colore del bordo della colonna.
   chart.update();
