@@ -37,7 +37,7 @@ $(document).ready(function() {
        new_span.innerText = display_str[i];
        display_div.appendChild(new_span);
      }
-   },100);
+   },500);
    //fine counter_lis
 
   //id html chart, tipo di chart, n valori (lun,mar,mer,gio,ven oppure altri poi decidi)
@@ -55,14 +55,30 @@ $(document).ready(function() {
   console.log(screen.height);
   */
 
-  //code before the pause
+  //UPDATE PERIODICAMENTE IL SERVER (CHIAMA PHP CHE LANCIA LO SCRIPT PYTHON)
   setInterval(function(){
+      var dataToSend = {
+        todo: "update server"
+      };
+      $.post("./prova.php?request=ottieni_dati", dataToSend, function(data) {
+        if(data.status === "error") {
+          console.log("errore durante il lancio dello script");
+        } else {
+          console.log("script lanciato correttamente");
+          console.log(data);
+        }
+      });
+    }, 10000);//1 sec
+  });
+
+  //code before the pause
+  /*setInterval(function(){
       var l1 = Math.random()*2500;
       console.log(Math.round(l1));
       var data = l1;
       addData(chart1, "new", data);
     }, 50000000);
-  });
+  });*/
 
   //funzione per costruire il primo grafico (quello giornaliero)
   function graphDay(id,type,a,b,c,d) {
