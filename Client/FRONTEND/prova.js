@@ -3,24 +3,30 @@ var chartWeek; //week
 var chartMonth; //month
 var chartYear; //year
 var chart;
+var entrateNow=0;
+var listToday = [];
 var max_posti_in_biblioteca = 123; //max posti = 2500 -> 2499 => 24 + 99 = 123
 $(document).ready(function() {
-  //inizio counter
-   var counter_list = [00,00000,"persone: "];
+   //displayTime
+   displayTime();setInterval(function(){displayTime();}, 60000);
+   //inizio counter
+   var counter_list = [00,00000,"Entrate: "];
    var str_counter_0 = counter_list[0];
    var str_counter_1 = counter_list[1];
    var str_counter_2 = counter_list[2];
    var display_str = "";
    var display_div = document.getElementById("counter_id");
-
    //funzione che modifica il contatore delle persone
    setInterval(function(){
      // clear count
      while (display_div.hasChildNodes()) {
          display_div.removeChild(display_div.lastChild);
      }
-     if(str_counter_1 + str_counter_0 < max_posti_in_biblioteca){
-       str_counter_0++;
+     if(str_counter_1 + str_counter_0 < max_posti_in_biblioteca && str_counter_0 !== entrateNow){
+       if(str_counter_0 < entrateNow)
+          str_counter_0++;
+       else
+          str_counter_0--;
      }
      if (str_counter_0 > 99) {
        str_counter_0 = 10; // reset count
@@ -38,9 +44,8 @@ $(document).ready(function() {
      }
    },500);
    //fine counter_lis
-
   //id html chart, tipo di chart, n valori (lun,mar,mer,gio,ven oppure altri poi decidi)
-  graphDay("ChartDay", "line", 830, 1290, 1590, 2000);
+  graphDay("ChartDay", "line", 0, 0, 0, 0);
   chartDay = chart;
   graphWeek("ChartWeek", "bar", 0, 0, 0, 0);
   chartWeek = chart;
@@ -48,54 +53,10 @@ $(document).ready(function() {
   chartMonth = chart;
   graphYear("ChartYear", "bar", 0, 0, 0, 0);
   chartYear = chart;
-  updateCharts();
-  /*
-  console.log(screen.width);
-  console.log(screen.height);
-  */
-  //UPDATE PERIODICAMENTE IL SERVER (CHIAMA PHP CHE LANCIA LO SCRIPT PYTHON)
-  /*setInterval(function(){
-      var dataToSend = {
-        todo: "update server"
-      };
-      $.post("../BACKEND/prova.php?request=ottieni_dati", dataToSend, function(data) {
-        if(data.status === "error") {
-          console.log("errore durante il lancio dello script");
-        } else {
-          var lun = 0;
-          var mar = 0;
-          var mer = 0;
-          var gio = 0;
-          var ven = 0;
-          var col = 0;
-          console.log("script lanciato correttamente");
-          for(var i = 0; i < data.length; i++){
-            if(data[i]["giorno"] === "lun")
-              lun += data[i]["entrate"];
-            else if (data[i]["giorno"] === "mar")
-              mar += data[i]["entrate"];
-            else if (data[i]["giorno"] === "mer")
-              mer += data[i]["entrate"];
-            else if(data[i]["giorno"] === "gio")
-              gio += data[i]["entrate"];
-            else {
-              ven += data[i]["entrate"];
-            }
-          }
-          addData(chartWeek, lun, col);
-          col++
-          addData(chartWeek, mar, col);
-          col++
-          addData(chartWeek, mer, col);
-          col++
-          addData(chartWeek, gio, col);
-          col++
-          addData(chartWeek, ven, col);
-        }
-      });
-    }, 10000);//1 sec*/
+  updateCharts();setInterval(function(){updateCharts();}, 86400000);
+  //console.log(screen.width);
+  //console.log(screen.height);
   });
-
   //funzione per costruire il primo grafico (quello giornaliero)
   function graphDay(id,type,a,b,c,d) {
     var l=a;
@@ -108,7 +69,7 @@ $(document).ready(function() {
         data: {
             labels: ["7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
             datasets: [{
-                label: 'andamento giornaliero',
+                label: 'andamento delle entrate giornaliere',
                 data: [l, m, m, g, v, l, m, m, g, v, g],
                 backgroundColor: [
                     'rgba(55, 99, 132, 0.4)'
@@ -296,10 +257,11 @@ $(document).ready(function() {
   //chart.data.datasets[0].borderColor[n] //prendi l'array della colonna n che indica il colore del bordo della colonna.
   chart.update();
   }
-  //funzione per aggiornare il chartWeek/Month/Year all'avvio
+  //funzione per aggiornare il chartWeek/Month/Year/Day all'avvio
   function updateCharts(){
     //avere la data nel formato yyyy-mm-gg
     var dt = new Date().toISOString().split('T')[0].split('-');
+    today = dt[0] + '-' + dt[1] + '-' + dt[2];
     if(dt[1] === '01'){
       dt[1] = 12;
       dt[0]--;
@@ -319,6 +281,7 @@ $(document).ready(function() {
           var week1=0,week2=0,week3=0,week4=0,c=0;  //settimane
           var gen=0,feb=0,mrz=0,apr=0,mag=0,giu=0,lug=0,ago=0,set=0,ott=0,nov=0,dic=0;  //anni
           var col = 0;
+          var compareH = [], compareT = [];
           console.log("script lanciato correttamente");
           for(var i = 0; i < data.length; i++){
             //updateChartWeek
@@ -378,6 +341,16 @@ $(document).ready(function() {
               else if(meseLibrary === 12)
                 dic += data[i]["entrate"];
             }
+
+            //updateChartToday
+            if(data[i]["data"] === today){
+              var list = [parseInt(data[i]["ora"].split(':')[0]), data[i]["entrate"] - data[i]["uscite"]];
+              if (list[1] < 0){list[1] = 0;} // se le entrate vanno in negativo allora sono uscite
+              compareH.push(list[0]);
+              compareT.push(list)
+              //console.log(data[i]["ora"].split(':')[0], data[i]["entrate"] - data[i]["uscite"]);
+
+            }
           }
           //update chart week
           addData(chartWeek, lun/lunCounter, col);
@@ -422,6 +395,35 @@ $(document).ready(function() {
           addData(chartYear, nov, col);
           col++;
           addData(chartYear, dic, col);
+          //update today chartDay
+          staticUpdateDay(compareH, compareT, listToday);
+          for (var i = 0; i < listToday.length; i++) {
+            addData(chartDay, listToday[i][1], listToday[i][0]-7);
+          }
         }
       });
     };
+  //funzione di appoggio alla per l'aggiornamento del chartDay al primo avvio
+  function staticUpdateDay(compareH, compareT, listToday) {
+      compareH.sort(function(a, b){return a-b});
+      for (var i = 0; i < compareH.length; i++){
+        for (var j = 0; j < compareT.length; j++){
+          if (compareH[i] === parseInt(compareT[j][0])) {
+            listToday.push(compareT[j]);
+          }
+        }
+      }
+      listToday[0][1] = 0;
+      entrateNow = listToday[listToday.length-1][1];
+      console.log(listToday);
+    }
+  //function to display Time
+  function displayTime(){
+      var d = new Date(); // for now
+      h = d.getHours();
+      m = d.getMinutes();
+      if(h<10){h='0'+h;}
+      if(m<10){m='0'+m;}
+      time = h + ':' + m;
+      document.getElementById('time').innerHTML=time;
+    }
