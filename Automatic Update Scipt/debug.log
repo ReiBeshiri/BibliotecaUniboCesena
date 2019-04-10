@@ -10,3 +10,5 @@
 [0403/142712.833:ERROR:exception_snapshot_win.cc(98)] thread ID 1464 not found in process
 [0403/175849.320:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accesso negato} Un processo ha richiesto di accedere ad un oggetto ma non ha ottenuto i diritti di accesso. (0xc0000022)
 [0403/175849.368:ERROR:exception_snapshot_win.cc(98)] thread ID 8360 not found in process
+[0408/115713.106:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accesso negato} Un processo ha richiesto di accedere ad un oggetto ma non ha ottenuto i diritti di accesso. (0xc0000022)
+[0408/115713.138:ERROR:exception_snapshot_win.cc(98)] thread ID 1460 not found in process

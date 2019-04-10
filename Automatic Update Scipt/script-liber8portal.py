@@ -34,7 +34,6 @@ driver = webdriver.Chrome() #get the Chrome tool (ChromeDriver, FirefoxDriver, S
 driver.maximize_window()
 driver.get('https://www.liber8portal.com')
 time.sleep(3)
-#driver.find_element_by_css_selector('div p a').click()
 username = driver.find_element_by_id("Username")
 password = driver.find_element_by_id("Password")
 username.send_keys("Prandi.Cesena")
@@ -54,21 +53,21 @@ frame = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "iframe")))
 
 driver.switch_to.frame(frame)
 
-driver.find_element_by_partial_link_text("mar").click() ###il giorno della settimana da scaricare ################dopo sarà la var day
+driver.find_element_by_partial_link_text(day).click() ###il giorno della settimana da scaricare
 
-time.sleep(5)
+time.sleep(6)
 
 driver.find_element_by_id('ctl00_MainContent_rvDeviceStats_ctl09_ctl04_ctl00_ButtonLink').click()
 driver.find_element_by_link_text('Excel').click()
 time.sleep(5)
 
-shutil.move(r'C:\Users\Rey\Downloads\PeopleFootfall.xlsx', r'C:\Users\Rey\Desktop\tirocinio\tirocinio\utils\php-py-mysql\data.xlsx')
+shutil.move(r'C:\Users\Rey\Downloads\PeopleFootfall.xlsx', r'C:\xampp\htdocs\tirocinio\tirocinio\Automatic Update Scipt\data.xlsx')
 #os.remove("C:\Users\Rey\Desktop\tirocinio\tirocinio\utils\php-py-mysql/data.xml")
-data = pd.read_excel('data.xlsx')
+data = pd.read_excel(r'C:\xampp\htdocs\tirocinio\tirocinio\Automatic Update Scipt\data.xlsx')
 
 #filtering useless data
 data = data.replace(to_replace='None', value=np.nan).replace(to_replace='0.00', value=np.nan).replace(to_replace='1.00', value=np.nan).replace(to_replace='2.00', value=np.nan).replace(to_replace='3.00', value=np.nan).replace(to_replace='4.00', value=np.nan).replace(to_replace='5.00', value=np.nan).replace(to_replace='6.00', value=np.nan).replace(to_replace='19.00', value=np.nan).replace(to_replace='20.00', value=np.nan).replace(to_replace='21.00', value=np.nan).replace(to_replace='22.00', value=np.nan).replace(to_replace='23.00', value=np.nan).dropna()
-
+print(data)
 # data.iat[0] -> data.iat[0+7] -> quindi alle 7:00
 """
 print(data.iloc[0]) -> 7:00
@@ -84,7 +83,6 @@ print(data.iloc[9]) -> 16:00
 print(data.iloc[10]) -> 17:00
 print(data.iloc[11]) -> 18:00
 """
-hour = 0 ###################################da togliere dopo
 row = data.iloc[hour]
 #print(row.iloc[2])#persone in
 #print(row.iloc[3])#persone out
@@ -113,12 +111,17 @@ mydb = mysql.connector.connect(
 )
 hour+=7 #riporto l'ora esatta 0 -> 0+7 = 7
 hour = str(hour) + ':00'
-date = '2019-04-02'###############da togliere dopo
 ####my sql insert in db
 mycursor = mydb.cursor()
-sql = "INSERT INTO library (ora, giorno, data, entrate, uscite) VALUES (%s ,%s, %s, %s, %s)"
+sql = "INSERT IGNORE INTO library (ora, giorno, data, entrate, uscite) VALUES (%s ,%s, %s, %s, %s)"
 val = (str(hour), str(day), str(date), str(persone_in), str(persone_out))
 mycursor.execute(sql, val)
 mydb.commit()
 print(mycursor.rowcount, "record inserted.")
+if(persone_in == 0 and persone_out == 0 and (hour == "7:00" or hour == "8:00" or hour == "9:00")):
+    sql = "INSERT IGNORE INTO segnalazione (ora, data, segnalazione) VALUES (%s ,%s, %s)"
+    val = (str(hour), str(date), "warning: la biblioteca risulta chiusa/vuota")
+    mycursor.execute(sql, val)
+    mydb.commit()
+    print(mycursor.rowcount, "segnalation inserted.")
 driver.quit()

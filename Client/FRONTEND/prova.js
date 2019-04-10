@@ -13,7 +13,7 @@ $(document).ready(function() {
    var display_str = "";
    var display_div = document.getElementById("counter_id");
 
-   //funzione che modifica il contatore
+   //funzione che modifica il contatore delle persone
    setInterval(function(){
      // clear count
      while (display_div.hasChildNodes()) {
@@ -286,7 +286,7 @@ $(document).ready(function() {
   }
   //dato un chart modifico i dati
   function addData(chart, data, n) {
-  chart.data.datasets[0].data[n] = data;
+  chart.data.datasets[0].data[n] = Math.round(data);
   /*chart.data.labels.push(label);
   chart.data.datasets.forEach((dataset) => {
     dataset.data.push(data);
@@ -296,7 +296,7 @@ $(document).ready(function() {
   //chart.data.datasets[0].borderColor[n] //prendi l'array della colonna n che indica il colore del bordo della colonna.
   chart.update();
   }
-  //funzione per aggiornare il chartWeek all'avvio
+  //funzione per aggiornare il chartWeek/Month/Year all'avvio
   function updateCharts(){
     //avere la data nel formato yyyy-mm-gg
     var dt = new Date().toISOString().split('T')[0].split('-');
@@ -315,24 +315,23 @@ $(document).ready(function() {
         if(data.status === "error") {
           console.log("errore durante il lancio dello script");
         } else {
-          var lun=0,mar=0,mer=0,gio=0,ven=0;  //giorni
-          var week1=0,week2=0,week3=0,week4=0;  //settimane
+          var lun=0,mar=0,mer=0,gio=0,ven=0,lunCounter=0,marCounter=0,merCounter=0,gioCounter=0,venCounter=0;  //giorni
+          var week1=0,week2=0,week3=0,week4=0,c=0;  //settimane
           var gen=0,feb=0,mrz=0,apr=0,mag=0,giu=0,lug=0,ago=0,set=0,ott=0,nov=0,dic=0;  //anni
           var col = 0;
           console.log("script lanciato correttamente");
-          console.log(data);
           for(var i = 0; i < data.length; i++){
             //updateChartWeek
-            if(data[i]["giorno"] === "lun")
-              lun += data[i]["entrate"];
-            else if (data[i]["giorno"] === "mar")
-              mar += data[i]["entrate"];
-            else if (data[i]["giorno"] === "mer")
-              mer += data[i]["entrate"];
-            else if(data[i]["giorno"] === "gio")
-              gio += data[i]["entrate"];
-            else if (data[i]["giorno"] === "ven")
-              ven += data[i]["entrate"];
+            if(data[i]["giorno"] === "lun"){
+              lun += data[i]["entrate"];lunCounter++;}
+            else if (data[i]["giorno"] === "mar"){
+              mar += data[i]["entrate"];marCounter++;}
+            else if (data[i]["giorno"] === "mer"){
+              mer += data[i]["entrate"];merCounter++;}
+            else if(data[i]["giorno"] === "gio"){
+              gio += data[i]["entrate"];gioCounter++;}
+            else if (data[i]["giorno"] === "ven"){
+              ven += data[i]["entrate"];venCounter++;}
 
             //updateChartMonth
             var meseLibrary = data[i]["data"].split('-');//parso la data
@@ -381,15 +380,15 @@ $(document).ready(function() {
             }
           }
           //update chart week
-          addData(chartWeek, lun, col);
+          addData(chartWeek, lun/lunCounter, col);
           col++;
-          addData(chartWeek, mar, col);
+          addData(chartWeek, mar/marCounter, col);
           col++;
-          addData(chartWeek, mer, col);
+          addData(chartWeek, mer/merCounter, col);
           col++;
-          addData(chartWeek, gio, col);
+          addData(chartWeek, gio/gioCounter, col);
           col++;
-          addData(chartWeek, ven, col);
+          addData(chartWeek, ven/venCounter, col);
           //update chart month
           col=0;
           addData(chartMonth, week1, col);
