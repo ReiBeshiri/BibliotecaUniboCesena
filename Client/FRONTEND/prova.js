@@ -14,6 +14,7 @@ var str_counter_2 = counter_list[2];
 var display_str = "";
 var display_div = document.getElementById("counter_id");
 ////////////////////////////////////////////////////////
+
 $(document).ready(function() {
    //displayTime
    displayTime();setInterval(function(){displayTime();}, 60000);
@@ -38,7 +39,6 @@ $(document).ready(function() {
   //console.log(screen.width);
   //console.log(screen.height);
   });
-
   /*FUNZIONI*/
   //funzione per ottenere le statistiche
   function getStats(){
