@@ -134,11 +134,11 @@ if (!$return) {
         elseif ($output[$i]["ora"] == "17:00")
           $a_17[0]+=$output[$i]["entrate"];
       }
-      $resultPROVA=array();
-      array_push($resultPROVA, $a_7, $a_8, $a_9, $a_10, $a_11, $a_12, $a_13, $a_14, $a_15, $a_16, $a_17);
+      $rush_hour=array();
+      array_push($rush_hour, $a_7, $a_8, $a_9, $a_10, $a_11, $a_12, $a_13, $a_14, $a_15, $a_16, $a_17);
       $i_max=0;
       for ($i=0; $i < 11 ; $i++) { //calcolo il max
-        if($resultPROVA[$i_max][0] < $resultPROVA[$i][0]){
+        if($rush_hour[$i_max][0] < $rush_hour[$i][0]){
           $i_max=$i;
         }
       }
@@ -149,7 +149,7 @@ if (!$return) {
       array_push($a_gio, $gio, "giovedì");
       array_push($a_ven, $ven, "venerdì");
       $result=array();
-      array_push($result, $a_lun, $a_mar, $a_mer, $a_gio, $a_ven, $resultPROVA[$i_max]);
+      array_push($result, $a_lun, $a_mar, $a_mer, $a_gio, $a_ven, $rush_hour[$i_max]);
       print json_encode($result);
       die();
       break;
