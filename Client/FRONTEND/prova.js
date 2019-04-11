@@ -6,43 +6,20 @@ var chart;
 var entrateNow=0;
 var listToday = [];
 var max_posti_in_biblioteca = 123; //max posti = 2500 -> 2499 => 24 + 99 = 123
+//inizio counter
+var counter_list = [00,00000,"Entrate: "];
+var str_counter_0 = counter_list[0];
+var str_counter_1 = counter_list[1];
+var str_counter_2 = counter_list[2];
+var display_str = "";
+var display_div = document.getElementById("counter_id");
+////////////////////////////////////////////////////////
 $(document).ready(function() {
    //displayTime
    displayTime();setInterval(function(){displayTime();}, 60000);
-   //inizio counter
-   var counter_list = [00,00000,"Entrate: "];
-   var str_counter_0 = counter_list[0];
-   var str_counter_1 = counter_list[1];
-   var str_counter_2 = counter_list[2];
-   var display_str = "";
-   var display_div = document.getElementById("counter_id");
+
    //funzione che modifica il contatore delle persone
-   setInterval(function(){
-     // clear count
-     while (display_div.hasChildNodes()) {
-         display_div.removeChild(display_div.lastChild);
-     }
-     if(str_counter_1 + str_counter_0 < max_posti_in_biblioteca && str_counter_0 !== entrateNow){
-       if(str_counter_0 < entrateNow)
-          str_counter_0++;
-       else
-          str_counter_0--;
-     }
-     if (str_counter_0 > 99) {
-       str_counter_0 = 10; // reset count
-       str_counter_1++;    // increase next count
-     }
-     if(str_counter_1>99999){
-       str_counter_2++;
-     }
-     display_str = str_counter_2.toString() + str_counter_1.toString() + str_counter_0.toString();
-     for (var i = 0; i < display_str.length; i++) {
-       var new_span = document.createElement('span');
-       new_span.className = 'num_tiles';
-       new_span.innerText = display_str[i];
-       display_div.appendChild(new_span);
-     }
-   },500);
+   setInterval(function(){updateCounter();},500);
    //fine counter_lis
   //id html chart, tipo di chart, n valori (lun,mar,mer,gio,ven oppure altri poi decidi)
   graphDay("ChartDay", "line", 0, 0, 0, 0);
@@ -53,8 +30,11 @@ $(document).ready(function() {
   chartMonth = chart;
   graphYear("ChartYear", "bar", 0, 0, 0, 0);
   chartYear = chart;
-  updateCharts();setInterval(function(){updateCharts();}, 86400000);
+  updateCharts();
   getStats();
+  setInterval(function(){updateCharts();getStats();}, 30000);
+  launchScript();
+  setInterval(function(){launchScript();}, 1200000);
   //console.log(screen.width);
   //console.log(screen.height);
   });
@@ -68,9 +48,9 @@ $(document).ready(function() {
         console.log("errore durante il lancio dello script");
       } else {
         console.log("stats");
-        console.log(data);
+        //console.log(data);
         var i_max=0,i_min=0,max=0,min=99999;
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < 5; i++) { //ciclo 5 volte perchè l'array è [lun,mar,mer,gio,ven,giorno+affollato], quindi da lun a ven 5
           if(data[i][0] > max){
             max = data[i][0];
             i_max = i;
@@ -81,6 +61,7 @@ $(document).ready(function() {
         }
         $("#giorno_maggiormente_affollato").text(data[i_max][1]);
         $("#giorno_minormente_affollato").text(data[i_min][1]);
+        $("#ora_di_punta").text(data[data.length-1][1]);
       }
     });
   }
@@ -303,7 +284,7 @@ $(document).ready(function() {
       $.post("../BACKEND/prova.php?request=ottieni_dati", dataToSend, function(data) {
         if(data.status === "error") {
           console.log("errore durante il lancio dello script");
-        } else {
+        } else if(data.length > 0){
           var lun=0,mar=0,mer=0,gio=0,ven=0,lunCounter=0,marCounter=0,merCounter=0,gioCounter=0,venCounter=0;  //giorni
           var week1=0,week2=0,week3=0,week4=0,c=0;  //settimane
           var gen=0,feb=0,mrz=0,apr=0,mag=0,giu=0,lug=0,ago=0,set=0,ott=0,nov=0,dic=0;  //anni
@@ -376,7 +357,6 @@ $(document).ready(function() {
               compareH.push(list[0]);
               compareT.push(list)
               //console.log(data[i]["ora"].split(':')[0], data[i]["entrate"] - data[i]["uscite"]);
-
             }
           }
           //update chart week
@@ -444,7 +424,7 @@ $(document).ready(function() {
         listToday[0][1] = 0;
         entrateNow = listToday[listToday.length-1][1];
       }
-      console.log(listToday,entrateNow);
+      //console.log(listToday,entrateNow);
     }
   //function to display Time
   function displayTime(){
@@ -456,3 +436,72 @@ $(document).ready(function() {
       time = h + ':' + m;
       document.getElementById('time').innerHTML=time;
     }
+  //function to ask php to launch the script PYTHON
+  function launchScript(){
+    var dataToSend="stats";
+    $.post("../BACKEND/prova.php?request=lancia_script", dataToSend, function(data) {
+      if(data.status === "error") {
+        console.log("errore durante il lancio dello script");
+      } else {
+        console.log("OK");
+      }
+    });
+  }
+  //function to update the counter
+  function updateCounter(){
+    // clear count
+    while (display_div.hasChildNodes()) {
+        display_div.removeChild(display_div.lastChild);
+    }
+    if(str_counter_1 + str_counter_0 < max_posti_in_biblioteca && str_counter_0 !== entrateNow){
+      if(str_counter_0 < entrateNow)
+         str_counter_0++;
+      else
+         str_counter_0--;
+    }
+    if (str_counter_0 > 99) {
+      str_counter_0 = 10; // reset count
+      str_counter_1++;    // increase next count
+    }
+    if(str_counter_1>99999){
+      str_counter_2++;
+    }
+    display_str = str_counter_2.toString() + str_counter_1.toString() + str_counter_0.toString();
+    for (var i = 0; i < display_str.length; i++) {
+      var new_span = document.createElement('span');
+      new_span.className = 'num_tiles';
+      new_span.innerText = display_str[i];
+      display_div.appendChild(new_span);
+    }
+  }
+  //funzione to dynamic update
+  /*function dynamicUpdateDay(){
+    //avere la data nel formato yyyy-mm-gg
+    var dt = new Date().toISOString().split('T')[0].split('-');
+    today = dt[0] + '-' + dt[1] + '-' + dt[2];
+      var dataToSend = {
+        dt: today
+      };
+      $.post("../BACKEND/prova.php?request=aggiorna_giorno", dataToSend, function(data) {
+        if(data.status === "error") {
+          console.log("errore durante il lancio dello script");
+        } else {
+          var compareH = [], compareT = [];
+          console.log("script lanciato correttamente");
+          for(var i = 0; i < data.length; i++){
+            //updateChartToday
+            if(data[i]["data"] === today){
+              var list = [parseInt(data[i]["ora"].split(':')[0]), data[i]["entrate"] - data[i]["uscite"]];
+              if (list[1] < 0){list[1] = 0;} // se le entrate vanno in negativo allora sono uscite
+              compareH.push(list[0]);
+              compareT.push(list)
+              //console.log(data[i]["ora"].split(':')[0], data[i]["entrate"] - data[i]["uscite"]);
+            }
+          }
+          staticUpdateDay(compareH, compareT, listToday);
+          for (var i = 0; i < listToday.length; i++) {
+            addData(chartDay, listToday[i][1], listToday[i][0]-7);
+          }
+        }
+      });
+    }*/
