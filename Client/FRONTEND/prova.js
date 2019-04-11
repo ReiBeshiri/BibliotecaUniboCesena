@@ -54,9 +54,36 @@ $(document).ready(function() {
   graphYear("ChartYear", "bar", 0, 0, 0, 0);
   chartYear = chart;
   updateCharts();setInterval(function(){updateCharts();}, 86400000);
+  getStats();
   //console.log(screen.width);
   //console.log(screen.height);
   });
+
+  /*FUNZIONI*/
+  //funzione per ottenere le statistiche
+  function getStats(){
+    var dataToSend="stats";
+    $.post("../BACKEND/prova.php?request=ottieni_statistiche", dataToSend, function(data) {
+      if(data.status === "error") {
+        console.log("errore durante il lancio dello script");
+      } else {
+        console.log("stats");
+        console.log(data);
+        var i_max=0,i_min=0,max=0,min=99999;
+        for (var i = 0; i < data.length; i++) {
+          if(data[i][0] > max){
+            max = data[i][0];
+            i_max = i;
+          } else if (data[i][0] < min) {
+            min = data[i][0];
+            i_min = i;
+          }
+        }
+        $("#giorno_maggiormente_affollato").text(data[i_max][1]);
+        $("#giorno_minormente_affollato").text(data[i_min][1]);
+      }
+    });
+  }
   //funzione per costruire il primo grafico (quello giornaliero)
   function graphDay(id,type,a,b,c,d) {
     var l=a;
@@ -413,9 +440,11 @@ $(document).ready(function() {
           }
         }
       }
-      listToday[0][1] = 0;
-      entrateNow = listToday[listToday.length-1][1];
-      console.log(listToday);
+      if(listToday.length > 0){
+        listToday[0][1] = 0;
+        entrateNow = listToday[listToday.length-1][1];
+      }
+      console.log(listToday,entrateNow);
     }
   //function to display Time
   function displayTime(){

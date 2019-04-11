@@ -51,6 +51,52 @@ if (!$return) {
 
     case 'lancia_script':
       break;
+
+    case 'ottieni_statistiche':
+
+      $stmt = $mysqli->prepare("SELECT ora,giorno,data,entrate,uscite FROM library");
+
+      if($stmt === false){
+        $response_array['status'] = "error";
+        print json_encode($response_array);
+        die();
+      }
+
+      $stmt->execute();
+
+      $result = $stmt->get_result();
+
+      $output = array();
+      while($row = $result->fetch_assoc()){
+          $output[] = $row;
+      }
+      $stmt->close();
+      $lun=0;$mar=0;$mer=0;$gio=0;$ven=0;
+      //echo '<pre>'; print_r($output); echo '</pre>';
+      for ($i=0; $i < count($output) ; $i++) {
+        if($output[$i]["giorno"] == "lun")
+          $lun+=$output[$i]["entrate"];
+        elseif ($output[$i]["giorno"] == "mar")
+          $mar+=$output[$i]["entrate"];
+        elseif ($output[$i]["giorno"] == "mer")
+          $mer+=$output[$i]["entrate"];
+        elseif ($output[$i]["giorno"] == "gio")
+          $gio+=$output[$i]["entrate"];
+        elseif ($output[$i]["giorno"] == "ven")
+          $ven+=$output[$i]["entrate"];
+      }
+      $a_lun=array();$a_mar=array();$a_mer=array();$a_gio=array();$a_ven=array();
+      array_push($a_lun, $lun, "lunedì");
+      array_push($a_mar, $mar, "martedì");
+      array_push($a_mer, $mer, "mercoledì");
+      array_push($a_gio, $gio, "giovedì");
+      array_push($a_ven, $ven, "venerdì");
+      $result=array();
+      array_push($result, $a_lun, $a_mar, $a_mer, $a_gio, $a_ven);
+      print json_encode($result);
+      die();
+      break;
+
     }
 
     /**********LANCIARE SCRIPT PYTHON*************/
