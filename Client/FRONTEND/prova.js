@@ -302,7 +302,10 @@ $(document).ready(function() {
             else if(data[i]["giorno"] === "gio"){
               gio += data[i]["entrate"];gioCounter++;}
             else if (data[i]["giorno"] === "ven"){
-              ven += data[i]["entrate"];venCounter++;}
+              ven += data[i]["entrate"];
+              if(data[i]["ora"] !== "15:00" || data[i]["ora"] !== "16:00" || data[i]["ora"] !== "17:00")//CONTROLLAAA
+                venCounter++;
+            }
 
             //updateChartMonth
             var meseLibrary = data[i]["data"].split('-');//parso la data
