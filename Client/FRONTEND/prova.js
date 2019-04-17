@@ -16,12 +16,11 @@ var display_div = document.getElementById("counter_id");
 ////////////////////////////////////////////////////////
 
 $(document).ready(function() {
-   //displayTime
-   displayTime();setInterval(function(){displayTime();}, 60000);
-
-   //funzione che modifica il contatore delle persone
-   setInterval(function(){updateCounter();},500);
-   //fine counter_lis
+  //displayTime
+  displayTime();setInterval(function(){displayTime();}, 60000);
+  //funzione che modifica il contatore delle persone
+  setInterval(function(){updateCounter();},500);
+  //fine counter_lis
   //id html chart, tipo di chart, n valori (lun,mar,mer,gio,ven oppure altri poi decidi)
   graphDay("ChartDay", "line", 0, 0, 0, 0);
   chartDay = chart;
@@ -36,9 +35,11 @@ $(document).ready(function() {
   setInterval(function(){updateCharts();getStats();}, 30000);
   //launchScript(); //////////TOGLI COMMENTO DOPO
   setInterval(function(){launchScript();}, 1200000);
+  //funzione che controlla se ci sono delle segnalazioni da riferire
+  setInterval(function(){checkError();},30000);
   //console.log(screen.width);
   //console.log(screen.height);
-  });
+});
   /*FUNZIONI*/
   //funzione per ottenere le statistiche
   function getStats(){
@@ -61,8 +62,11 @@ $(document).ready(function() {
           }
         }
         //modifico l'html e lo aggiorno con i nuovi dati
+        $("#giorno_maggiormente_affollato").empty();
         $("#giorno_maggiormente_affollato").text(data[i_max][1]);
+        $("#giorno_minormente_affollato").empty();
         $("#giorno_minormente_affollato").text(data[i_min][1]);
+        $("#ora_di_punta").empty();
         $("#ora_di_punta").text(data[data.length-1][1]);
       }
     });
@@ -478,6 +482,23 @@ $(document).ready(function() {
       new_span.innerText = display_str[i];
       display_div.appendChild(new_span);
     }
+  }
+  //funzione che richiede al server le segnalazioni riguardanti il giorno odierno
+  function checkError(){
+    var dataToSend="check";
+    $.post("../BACKEND/prova.php?request=ottieni_segnalazioni", dataToSend, function(data) {
+      if(data.status === "error") {
+        console.log("Errore durante il lancio dello script");
+      } else {
+        var errorcode = "In data " + data[0]["data"] + " si &egrave; verificato l'errore: " + data[0]["segnalazione"];
+        console.log("Script-check lanciato correttamente");
+        if(data.length >= 3){
+          console.log("Si è presentato un errore");
+          $("#errorcode").empty();
+          $("#errorcode").append('<marquee bgcolor="yellow" width="77%" id="errorcode">'+errorcode+'</marquee>');
+        }
+      }
+    });
   }
   //funzione to dynamic update
   /*function dynamicUpdateDay(){

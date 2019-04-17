@@ -65,6 +65,29 @@ if (!$return) {
       print json_encode($response_array);
       break;
 
+    case 'ottieni_segnalazioni':
+      $stmt = $mysqli->prepare("SELECT ora,data,segnalazione FROM segnalazione");
+      if($stmt === false){
+        $response_array['status'] = "error";
+        print json_encode($response_array);
+        die();
+      }
+
+      $stmt->execute();
+
+      $result = $stmt->get_result();
+
+      $output = array();
+      while($row = $result->fetch_assoc()){
+          if($row["data"] == date("Y-m-d")){
+              $output[] = $row;
+          }
+      }
+      $stmt->close();
+      print json_encode($output);
+      die();
+      break;
+
     case 'ottieni_statistiche':
 
       $stmt = $mysqli->prepare("SELECT ora,giorno,data,entrate,uscite FROM library");
