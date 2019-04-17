@@ -40,10 +40,11 @@ if (!$return) {
 
       $output = array();
       while($row = $result->fetch_assoc()){
-          $output[] = $row;
+          if($row["ora"] != "18:00" || $row["ora"] != "7:00"){
+              $output[] = $row;
+          }
       }
       $stmt->close();
-
       print json_encode($output);
       die();
       break;
@@ -84,9 +85,9 @@ if (!$return) {
       $stmt->close();
       $lun=0;$mar=0;$mer=0;$gio=0;$ven=0;
       $people=0;
-      $a_7=array();$a_8=array();$a_9=array();$a_10=array();$a_11=array();$a_12=array();
+      /*$a_7=array();*/$a_8=array();$a_9=array();$a_10=array();$a_11=array();$a_12=array();
       $a_13=array();$a_14=array();$a_15=array();$a_16=array();$a_17=array();
-      array_push($a_7, $people, "7:00");
+      //array_push($a_7, $people, "7:00");
       array_push($a_8, $people, "8:00");
       array_push($a_9, $people, "9:00");
       array_push($a_10, $people, "10:00");
@@ -100,20 +101,22 @@ if (!$return) {
       //echo '<pre>'; print_r($output); echo '</pre>';
       for ($i=0; $i < count($output) ; $i++) {
         //calcolo persone in ogni giorno della settimana
-        if($output[$i]["giorno"] == "lun")
-          $lun+=$output[$i]["entrate"];
-        elseif ($output[$i]["giorno"] == "mar")
-          $mar+=$output[$i]["entrate"];
-        elseif ($output[$i]["giorno"] == "mer")
-          $mer+=$output[$i]["entrate"];
-        elseif ($output[$i]["giorno"] == "gio")
-          $gio+=$output[$i]["entrate"];
-        elseif ($output[$i]["giorno"] == "ven")
-          $ven+=$output[$i]["entrate"];
+        if($output[$i]["ora"] != "7:00" && $output[$i]["ora"] != "18:00"){
+          if($output[$i]["giorno"] == "lun")
+            $lun+=$output[$i]["entrate"] - $output[$i]["uscite"];
+          elseif ($output[$i]["giorno"] == "mar")
+            $mar+=$output[$i]["entrate"] - $output[$i]["uscite"];
+          elseif ($output[$i]["giorno"] == "mer")
+            $mer+=$output[$i]["entrate"] - $output[$i]["uscite"];
+          elseif ($output[$i]["giorno"] == "gio")
+            $gio+=$output[$i]["entrate"] - $output[$i]["uscite"];
+          elseif ($output[$i]["giorno"] == "ven" && $output[$i]["ora"] != "15:00" && $output[$i]["ora"] != "16:00" && $output[$i]["ora"] != "17:00")
+            $ven+=$output[$i]["entrate"] - $output[$i]["uscite"];
+        }
         //calcolo persone in ogni ora del giorno
-        if($output[$i]["ora"] == "7:00")
+        /*if($output[$i]["ora"] == "7:00")
           $a_7[0]+=$output[$i]["entrate"];
-        elseif ($output[$i]["ora"] == "8:00")
+        else*/if ($output[$i]["ora"] == "8:00")
           $a_8[0]+=$output[$i]["entrate"];
         elseif ($output[$i]["ora"] == "9:00")
           $a_9[0]+=$output[$i]["entrate"];
@@ -135,9 +138,9 @@ if (!$return) {
           $a_17[0]+=$output[$i]["entrate"];
       }
       $rush_hour=array();
-      array_push($rush_hour, $a_7, $a_8, $a_9, $a_10, $a_11, $a_12, $a_13, $a_14, $a_15, $a_16, $a_17);
+      array_push($rush_hour, /*$a_7,*/ $a_8, $a_9, $a_10, $a_11, $a_12, $a_13, $a_14, $a_15, $a_16, $a_17);
       $i_max=0;
-      for ($i=0; $i < 11 ; $i++) { //calcolo il max
+      for ($i=0; $i < 10 ; $i++) { //calcolo il max (8,9,10,11,12,13,14,15,16,17)
         if($rush_hour[$i_max][0] < $rush_hour[$i][0]){
           $i_max=$i;
         }
