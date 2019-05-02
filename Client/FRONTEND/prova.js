@@ -495,7 +495,7 @@ $(document).ready(function() {
         if(data.length >= 3){
           console.log("Si è presentato un errore");
           $("#errorcode").empty();
-          $("#errorcode").append('<marquee bgcolor="yellow" width="77%" id="errorcode">'+errorcode+'</marquee>');
+          $("#errorcode").append(errorcode);
         }
       }
     });

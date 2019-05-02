@@ -12,6 +12,7 @@ import numpy as np
 import datetime
 import mysql.connector
 
+#Processo di ETL dei dati
 
 #ottengo l'ora la data e il giorno
 now = datetime.datetime.now()
@@ -29,7 +30,8 @@ elif(day == 4):
     day = "ven"
 date = str(now.year) + '-' + str(now.month).zfill(2) + '-' + str(now.day).zfill(2)
 #######################
-
+#Estract dei dati
+#navigo nel sito di liber8portal fino ad ottenere i dati
 driver = webdriver.Chrome() #get the Chrome tool (ChromeDriver, FirefoxDriver, SafariDriver most used)
 driver.maximize_window()
 driver.get('https://www.liber8portal.com')
@@ -47,25 +49,21 @@ driver.find_element_by_id('ctxBtnUniversità-di-Bologna-null').click()
 time.sleep(2)
 driver.find_element_by_link_text('Passaggio persone').click()
 time.sleep(10)
-
 wait = WebDriverWait(driver, 10)
 frame = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "iframe")))
-
 driver.switch_to.frame(frame)
-
 driver.find_element_by_partial_link_text(day).click() ###il giorno della settimana da scaricare
-
 time.sleep(6)
-
 driver.find_element_by_id('ctl00_MainContent_rvDeviceStats_ctl09_ctl04_ctl00_ButtonLink').click()
 driver.find_element_by_link_text('Excel').click()
 time.sleep(5)
-
+#Una volta ottenuti i dati uso la move per muovere tali dati in un percorso desiderato in quanto il default è il /Downloads
 shutil.move(r'C:\Users\Rey\Downloads\PeopleFootfall.xlsx', r'C:\xampp\htdocs\tirocinio\tirocinio\Client\BACKEND\data.xlsx')
 #os.remove("C:\Users\Rey\Desktop\tirocinio\tirocinio\utils\php-py-mysql/data.xml")
-data = pd.read_excel(r'C:\xampp\htdocs\tirocinio\tirocinio\Client\BACKEND\data.xlsx')
+data = pd.read_excel(r'C:\xampp\htdocs\tirocinio\tirocinio\Client\BACKEND\data.xlsx') #leggo i dati con il parser di excel in py
 
-#filtering useless data
+#Transform dei dati
+#filtering dei dati (dalle 7 alle 18 e i non None)
 data = data.replace(to_replace='None', value=np.nan).replace(to_replace='0.00', value=np.nan).replace(to_replace='1.00', value=np.nan).replace(to_replace='2.00', value=np.nan).replace(to_replace='3.00', value=np.nan).replace(to_replace='4.00', value=np.nan).replace(to_replace='5.00', value=np.nan).replace(to_replace='6.00', value=np.nan).replace(to_replace='19.00', value=np.nan).replace(to_replace='20.00', value=np.nan).replace(to_replace='21.00', value=np.nan).replace(to_replace='22.00', value=np.nan).replace(to_replace='23.00', value=np.nan).dropna()
 print(data)
 # data.iat[0] -> data.iat[0+7] -> quindi alle 7:00
@@ -101,7 +99,7 @@ else:
     persone_in = row.iloc[2]
     persone_out = row.iloc[3]
 
-
+#Load dei dati nel database
 #Insert record in database
 mydb = mysql.connector.connect(
   host="localhost",
@@ -118,7 +116,8 @@ val = (str(hour), str(day), str(date), str(persone_in), str(persone_out))
 mycursor.execute(sql, val)
 mydb.commit()
 print(mycursor.rowcount, "record inserted.")
-if(persone_in == 0 and persone_out == 0 and (hour == "7:00" or hour == "8:00" or hour == "9:00")):
+###insert nella tabella segnalationi se non vi sono persone
+if(persone_in == 0 and persone_out == 0 and (hour != "17:00" or hour != "18:00" or hour != "16:00")):
     sql = "INSERT IGNORE INTO segnalazione (ora, data, segnalazione) VALUES (%s ,%s, %s)"
     val = (str(hour), str(date), "warning: la biblioteca risulta chiusa/vuota")
     mycursor.execute(sql, val)
