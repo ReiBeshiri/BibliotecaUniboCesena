@@ -1,0 +1,6 @@
+Il bot telegram viene lanciato all'avvio della pagina, e inizialmente dopo aver inserito nel DB dello stato_biblioteca l'apertura della biblioteca che verosimilmente coinicde con l'avvio della pagina, vengono creati due thread che andranno a gestire le risposte alla chat privata e le segnalazioni al gruppo telegram per i responsabili.
+
+Il thread "ThreadPrivateChat" esegue un polling nella getUpdate, ovvero si prende tutti i messaggi ricevuti e ne  esegue gli handler. Nel caso in cui non ci sia un handler per quello specifico comando, questo viene ignorato.
+
+Il thread "ThreadGroupChat" serve ad informare il gruppo quando ci sono segnalazioni dal server (messaggio inviato nel gruppo in broadcast tramite la chat ID del gruppo).
+

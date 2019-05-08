@@ -4,7 +4,7 @@ import threading
 import datetime
 import mysql.connector
 
-stato_biblioteca="la biblioteca è aperta"
+
 #connessione al database
 mydb = mysql.connector.connect(
   host="localhost",
@@ -13,16 +13,55 @@ mydb = mysql.connector.connect(
   database="biblioteca"
 )
 mycursor = mydb.cursor()
-
+#getdate istance
+now = datetime.datetime.now()
+#all'avvio del bot inserisco il fatto che la biblioteca è aperta
+stato_biblioteca="la biblioteca è aperta"
+date = str(now.year) + '-' + str(now.month).zfill(2) + '-' + str(now.day).zfill(2)
+sql = "INSERT IGNORE INTO stato_biblioteca (data, stato) VALUES (%s ,%s)"
+val = (str(date), stato_biblioteca)
+mycursor.execute(sql, val)
+mydb.commit()
+print(mycursor.rowcount, "record inserted.")    
+#
 #token del bot telegram
 bot_token = '832858084:AAGDIIfF5OtaSYzkTKQjlHdw4ITelnbGW2E'
 #creo l'istanza del bot con i parametri
 bot = telebot.TeleBot(bot_token, threaded=True , num_threads=4)
-
 #handler per le chat private
+#ritorna lo stato della biblioteca (aperto/chiuso)
 @bot.message_handler(commands=['stato'])
 def send_welcome(message):
-	bot.reply_to(message, stato_biblioteca)
+    date = str(now.year) + '-' + str(now.month).zfill(2) + '-' + str(now.day).zfill(2)
+    sql = "SELECT stato FROM stato_biblioteca WHERE data=%s ORDER BY id DESC LIMIT 1"
+    val=(str(date),)
+    mycursor.execute(sql, val)
+    myresult=mycursor.fetchall()
+    for x in myresult:
+        print(x)
+    bot.reply_to(message, myresult)
+#cambia lo stato della biblioteca da chiuso ad aperto (solo per i responsabili)
+@bot.message_handler(commands=['apri'])
+def send_welcome(message):
+    stato_biblioteca="la biblioteca è aperta"
+    date = str(now.year) + '-' + str(now.month).zfill(2) + '-' + str(now.day).zfill(2)
+    sql = "INSERT IGNORE INTO stato_biblioteca (data, stato) VALUES (%s ,%s)"
+    val = (str(date), stato_biblioteca)
+    mycursor.execute(sql, val)
+    mydb.commit()
+    print(mycursor.rowcount, "record inserted.")
+    bot.reply_to(message, stato_biblioteca)
+#cambia lo stato della biblioteca da aperto a chiuso (solo per i responsabili)
+@bot.message_handler(commands=['chiudi'])
+def send_welcome(message):
+    stato_biblioteca="la biblioteca è chiusa"
+    date = str(now.year) + '-' + str(now.month).zfill(2) + '-' + str(now.day).zfill(2)
+    sql = "INSERT IGNORE INTO stato_biblioteca (data, stato) VALUES (%s ,%s)"
+    val = (str(date), stato_biblioteca)
+    mycursor.execute(sql, val)
+    mydb.commit()
+    print(mycursor.rowcount, "record inserted.")
+    bot.reply_to(message, stato_biblioteca)
 #bot.send_message(cid, "send_message") Rei:574478664 #bot-id:832858084  #chat-id gruppo:386484981-> per inviare un messaggio in broadcast al gruppo telegram
 
 #definisco il thread per le chat private che va in polling della getUpdates(metodo fornitoda telegram per avere i messaggi in entrata del bot)
@@ -34,17 +73,16 @@ def ThreadGroupChat():
 		now = datetime.datetime.now()
 		date = str(now.year) + '-' + str(now.month).zfill(2) + '-' + str(now.day).zfill(2)
 		sql = "SELECT * FROM segnalazione WHERE data = %s"
-		par = (str(date),)
-		par = ("2019-04-17",)
-		mycursor.execute(sql, par)
+		val = (str(date),)
+		mycursor.execute(sql, val)
 		myresult=mycursor.fetchall()
 		for x in myresult:
 			print(x)
 		print(len(myresult))
-		bot.send_message("-386484981", "send_message1") #chat-id gruppo:386484981-> per inviare un messaggio in broadcast al gruppo telegram
+		bot.send_message("-386484981", "invio_warning") #chat-id gruppo:386484981-> per inviare un messaggio in broadcast al gruppo telegram
 		time.sleep(30)
 
-#creo le istanze dei thread per il bot e setto deamon=true, successivamente lancio i thread
+#creo le istanze dei thread per il bot, successivamente lancio i thread
 threadPrivateChat = threading.Thread(target=ThreadPrivateChat, args=[])
 threadGroupChat = threading.Thread(target=ThreadGroupChat, args=[])
 threadPrivateChat.deamon=True

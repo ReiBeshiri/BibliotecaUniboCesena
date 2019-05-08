@@ -25,6 +25,36 @@ if (!$return) {
 
     switch ($_GET["request"]) {
 
+    case 'apri_biblioteca':
+
+      exec("python ./BotTelegramBiblioteca.py", $output, $return);
+      // Return will return non-zero upon an error
+      if (!$return) {
+          $response_array = "script launched Successfully"; //
+      } else {
+          //in case the return is zero
+          $response_array = "error";
+          //should return the error
+          //var_dump($output);
+          //var_dump($return);
+      }
+      print json_encode($response_array);
+      break;
+
+    case 'kill_py':
+      echo exec("tasklist", $output, $return);
+      // Return will return non-zero upon an error
+      if (!$return) {
+          $response_array = "script launched Successfully"; //
+      } else {
+          //in case the return is zero
+          $response_array = "error";
+          //should return the error
+          var_dump($output);
+          var_dump($return);
+      }
+      break;
+
     case 'ottieni_dati':
 
       $stmt = $mysqli->prepare("SELECT ora,giorno,data,entrate,uscite FROM library");

@@ -16,6 +16,12 @@ var display_div = document.getElementById("counter_id");
 ////////////////////////////////////////////////////////
 
 $(document).ready(function() {
+  //intercept the unload of the window
+  $(window).on("beforeunload", function() {
+    //chiudi il bot telegram
+  });
+  //Apri biblioteca
+  apriBiblioteca();
   //displayTime
   displayTime();setInterval(function(){displayTime();}, 60000);
   //funzione che modifica il contatore delle persone
@@ -490,44 +496,26 @@ $(document).ready(function() {
       if(data.status === "error") {
         console.log("Errore durante il lancio dello script");
       } else {
-        var errorcode = "In data " + data[0]["data"] + " si &egrave; verificato l'errore: " + data[0]["segnalazione"];
-        console.log("Script-check lanciato correttamente");
-        if(data.length >= 3){
-          console.log("Si è presentato un errore");
-          $("#errorcode").empty();
-          $("#errorcode").append(errorcode);
+        if(data[0] !== undefined){
+          var errorcode = "In data " + data[0]["data"] + " si &egrave; verificato l'errore: " + data[0]["segnalazione"];
+          console.log("Script-check lanciato correttamente");
+          if(data.length >= 3){
+            console.log("Si è presentato un errore");
+            $("#errorcode").empty();
+            $("#errorcode").append(errorcode);
+          }
         }
       }
     });
   }
-  //funzione to dynamic update
-  /*function dynamicUpdateDay(){
-    //avere la data nel formato yyyy-mm-gg
-    var dt = new Date().toISOString().split('T')[0].split('-');
-    today = dt[0] + '-' + dt[1] + '-' + dt[2];
-      var dataToSend = {
-        dt: today
-      };
-      $.post("../BACKEND/prova.php?request=aggiorna_giorno", dataToSend, function(data) {
-        if(data.status === "error") {
-          console.log("errore durante il lancio dello script");
-        } else {
-          var compareH = [], compareT = [];
-          console.log("script lanciato correttamente");
-          for(var i = 0; i < data.length; i++){
-            //updateChartToday
-            if(data[i]["data"] === today){
-              var list = [parseInt(data[i]["ora"].split(':')[0]), data[i]["entrate"] - data[i]["uscite"]];
-              if (list[1] < 0){list[1] = 0;} // se le entrate vanno in negativo allora sono uscite
-              compareH.push(list[0]);
-              compareT.push(list)
-              //console.log(data[i]["ora"].split(':')[0], data[i]["entrate"] - data[i]["uscite"]);
-            }
-          }
-          staticUpdateDay(compareH, compareT, listToday);
-          for (var i = 0; i < listToday.length; i++) {
-            addData(chartDay, listToday[i][1], listToday[i][0]-7);
-          }
-        }
-      });
-    }*/
+  //funzione che inizialmente va a mettere nel database lo stato della biblioteca ad aperto
+  function apriBiblioteca(){
+    var dataToSend="stats";
+    $.post("../BACKEND/prova.php?request=apri_biblioteca", dataToSend, function(data) {
+      if(data.status === "error") {
+        console.log("Errore durante il lancio dello script");
+      } else {
+        console.log("Biblioteca aperta");
+      }
+    });
+  }

@@ -1,4 +1,4 @@
-## File last modified by Fizzim: 16.54.06 on 08/05/19
+## File last modified by Fizzim: 16.51.40 on 08/05/19
 <version>
    14.02.26
 </version>
@@ -299,10 +299,10 @@
 </tabs>
 ## START PREFERENCES
 <SCounter>
-6
+5
 </SCounter>
 <TCounter>
-15
+8
 </TCounter>
 <TableVis>
 true
@@ -342,10 +342,10 @@ false
 <textObj>
 fzm_globalTable
    <x>
-   -222
+   -223
    </x>
    <y>
-   -58
+   -60
    </y>
    <page>
    1
@@ -359,7 +359,7 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         webPage
+         Telegram Bot
             <status>
             LOCAL
             </status>
@@ -401,10 +401,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         -2
          </x2Obj>
          <y2Obj>
-         32
+         29
          </y2Obj>
          <page>
          1
@@ -412,16 +412,16 @@ fzm_globalTable
       </name>
    </attributes>
    <x0>
-   13
+   360
    </x0>
    <y0>
-   89
+   16
    </y0>
    <x1>
-   143
+   560
    </x1>
    <y1>
-   219
+   116
    </y1>
    <reset>
    false
@@ -442,7 +442,7 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         python
+         Thread Private Chat
             <status>
             LOCAL
             </status>
@@ -487,7 +487,7 @@ fzm_globalTable
          1
          </x2Obj>
          <y2Obj>
-         33
+         34
          </y2Obj>
          <page>
          1
@@ -495,16 +495,16 @@ fzm_globalTable
       </name>
    </attributes>
    <x0>
-   404
+   609
    </x0>
    <y0>
-   92
+   160
    </y0>
    <x1>
-   534
+   739
    </x1>
    <y1>
-   222
+   290
    </y1>
    <reset>
    false
@@ -623,10 +623,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         -283
+         397
          </x2Obj>
          <y2Obj>
-         -169
+         -132
          </y2Obj>
          <page>
          1
@@ -634,40 +634,40 @@ fzm_globalTable
       </equation>
    </attributes>
    <startState>
-   python
+   Telegram Bot
    </startState>
    <endState>
-   webPage
+   Thread Private Chat
    </endState>
    <startPtX>
-   407.0
+   553.0
    </startPtX>
    <startPtY>
-   134.0
+   83.0
    </startPtY>
    <endPtX>
-   142.0
+   624.0
    </endPtX>
    <endPtY>
-   142.0
+   183.0
    </endPtY>
    <startCtrlPtX>
-   300.0
+   577.0
    </startCtrlPtX>
    <startCtrlPtY>
-   93.0
+   115.0
    </startCtrlPtY>
    <endCtrlPtY>
-   210.0
+   601.0
    </endCtrlPtY>
    <endCtrlPtY>
-   84.0
+   150.0
    </endCtrlPtY>
    <startStateIndex>
-   20
+   2
    </startStateIndex>
    <endStateIndex>
-   35
+   22
    </endStateIndex>
    <page>
    1
@@ -705,24 +705,24 @@ fzm_globalTable
 </transition>
 ## END STATE TRANSITION OBJECT
 <textObj>
-get Data
+
    <x>
-   231
+   618
    </x>
    <y>
-   206
+   120
    </y>
    <page>
    1
    </page>
 </textObj>
 <textObj>
-parsed data /
+create Thread
    <x>
-   415
+   594
    </x>
    <y>
-   28
+   110
    </y>
    <page>
    1
@@ -834,10 +834,10 @@ parsed data /
             </status>
          </resetval>
          <x2Obj>
-         493
+         355
          </x2Obj>
          <y2Obj>
-         -298
+         -363
          </y2Obj>
          <page>
          1
@@ -845,40 +845,40 @@ parsed data /
       </equation>
    </attributes>
    <startState>
-   python
+   Thread Private Chat
    </startState>
    <endState>
-   python
+   Thread Private Chat
    </endState>
    <startPtX>
-   480.0
+   723.0
    </startPtX>
    <startPtY>
-   92.0
+   183.0
    </startPtY>
    <endPtX>
-   427.0
+   685.0
    </endPtX>
    <endPtY>
-   107.0
+   160.0
    </endPtY>
    <startCtrlPtX>
-   518.0
+   778.0
    </startCtrlPtX>
    <startCtrlPtY>
-   21.0
+   151.0
    </startCtrlPtY>
    <endCtrlPtY>
-   364.0
+   685.0
    </endCtrlPtY>
    <endCtrlPtY>
-   27.0
+   79.0
    </endCtrlPtY>
    <startStateIndex>
-   28
+   32
    </startStateIndex>
    <endStateIndex>
-   23
+   28
    </endStateIndex>
    <page>
    1
@@ -889,12 +889,24 @@ parsed data /
 </transition>
 ## START LOOPBACK TRANSITION OBJECT
 <textObj>
-manipulate data
+if (MsgBuffer != null)
    <x>
-   414
+   727
    </x>
    <y>
-   40
+   126
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
+<textObj>
+bot.handle.msg()
+   <x>
+   739
+   </x>
+   <y>
+   138
    </y>
    <page>
    1
@@ -908,7 +920,7 @@ manipulate data
             ABS
             </status>
          <value>
-         DB
+         Telegram Server
             <status>
             LOCAL
             </status>
@@ -950,10 +962,10 @@ manipulate data
             </status>
          </resetval>
          <x2Obj>
-         0
+         -1
          </x2Obj>
          <y2Obj>
-         34
+         36
          </y2Obj>
          <page>
          1
@@ -961,16 +973,16 @@ manipulate data
       </name>
    </attributes>
    <x0>
-   760
+   639
    </x0>
    <y0>
-   226
+   473
    </y0>
    <x1>
-   890
+   769
    </x1>
    <y1>
-   356
+   603
    </y1>
    <reset>
    false
@@ -1089,10 +1101,10 @@ manipulate data
             </status>
          </resetval>
          <x2Obj>
-         297
+         255
          </x2Obj>
          <y2Obj>
-         -216
+         -366
          </y2Obj>
          <page>
          1
@@ -1100,40 +1112,40 @@ manipulate data
       </equation>
    </attributes>
    <startState>
-   python
+   Thread Private Chat
    </startState>
    <endState>
-   DB
+   Telegram Server
    </endState>
    <startPtX>
-   533.0
+   723.0
    </startPtX>
    <startPtY>
-   168.0
+   266.0
    </startPtY>
    <endPtX>
-   802.0
+   736.0
    </endPtX>
    <endPtY>
-   229.0
+   481.0
    </endPtY>
    <startCtrlPtX>
-   671.0
+   785.0
    </startCtrlPtX>
    <startCtrlPtY>
-   136.0
+   330.0
    </startCtrlPtY>
    <endCtrlPtY>
-   686.0
+   794.0
    </endCtrlPtY>
    <endCtrlPtY>
-   148.0
+   406.0
    </endCtrlPtY>
    <startStateIndex>
-   1
+   4
    </startStateIndex>
    <endStateIndex>
-   25
+   30
    </endStateIndex>
    <page>
    1
@@ -1170,196 +1182,6 @@ manipulate data
    </stub>
 </transition>
 ## END STATE TRANSITION OBJECT
-<textObj>
-push data to DB
-   <x>
-   619
-   </x>
-   <y>
-   145
-   </y>
-   <page>
-   1
-   </page>
-</textObj>
-## START STATE OBJECT
-<state>
-   <attributes>
-      <name>
-            <status>
-            ABS
-            </status>
-         <value>
-         javascript
-            <status>
-            LOCAL
-            </status>
-         </value>
-         <vis>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         34
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </name>
-   </attributes>
-   <x0>
-   202
-   </x0>
-   <y0>
-   412
-   </y0>
-   <x1>
-   332
-   </x1>
-   <y1>
-   542
-   </y1>
-   <reset>
-   false
-   </reset>
-   <page>
-   1
-   </page>
-   <color>
-   -16777216
-   </color>
-</state>
-## END STATE OBJECT
-<textObj>
-
-   <x>
-   563
-   </x>
-   <y>
-   468
-   </y>
-   <page>
-   1
-   </page>
-</textObj>
-## START STATE OBJECT
-<state>
-   <attributes>
-      <name>
-            <status>
-            ABS
-            </status>
-         <value>
-         php
-            <status>
-            LOCAL
-            </status>
-         </value>
-         <vis>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         28
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </name>
-   </attributes>
-   <x0>
-   505
-   </x0>
-   <y0>
-   405
-   </y0>
-   <x1>
-   635
-   </x1>
-   <y1>
-   535
-   </y1>
-   <reset>
-   false
-   </reset>
-   <page>
-   1
-   </page>
-   <color>
-   -16777216
-   </color>
-</state>
-## END STATE OBJECT
 ## START STATE TRANSITION OBJECT
 <transition>
    <attributes>
@@ -1466,10 +1288,10 @@ push data to DB
             </status>
          </resetval>
          <x2Obj>
-         232
+         283
          </x2Obj>
          <y2Obj>
-         -398
+         -382
          </y2Obj>
          <page>
          1
@@ -1477,40 +1299,40 @@ push data to DB
       </equation>
    </attributes>
    <startState>
-   php
+   Telegram Server
    </startState>
    <endState>
-   DB
+   Thread Private Chat
    </endState>
    <startPtX>
-   634.0
+   671.0
    </startPtX>
    <startPtY>
    481.0
    </startPtY>
    <endPtX>
-   825.0
+   641.0
    </endPtX>
    <endPtY>
-   356.0
+   281.0
    </endPtY>
    <startCtrlPtX>
-   779.0
+   597.0
    </startCtrlPtX>
    <startCtrlPtY>
-   503.0
+   445.0
    </startCtrlPtY>
    <endCtrlPtY>
-   822.0
+   588.0
    </endCtrlPtY>
    <endCtrlPtY>
-   399.0
+   335.0
    </endCtrlPtY>
    <startStateIndex>
-   1
+   24
    </startStateIndex>
    <endStateIndex>
-   9
+   12
    </endStateIndex>
    <page>
    1
@@ -1548,17 +1370,112 @@ push data to DB
 </transition>
 ## END STATE TRANSITION OBJECT
 <textObj>
-request data
+getUpdates()
    <x>
-   658
+   778
    </x>
    <y>
-   496
+   369
    </y>
    <page>
    1
    </page>
 </textObj>
+<textObj>
+sendMsg()
+   <x>
+   553
+   </x>
+   <y>
+   387
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
+## START STATE OBJECT
+<state>
+   <attributes>
+      <name>
+            <status>
+            ABS
+            </status>
+         <value>
+         Telegram Group Chat
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         1
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         def_type
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         -1
+         </x2Obj>
+         <y2Obj>
+         38
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </name>
+   </attributes>
+   <x0>
+   195
+   </x0>
+   <y0>
+   193
+   </y0>
+   <x1>
+   325
+   </x1>
+   <y1>
+   323
+   </y1>
+   <reset>
+   false
+   </reset>
+   <page>
+   1
+   </page>
+   <color>
+   -16777216
+   </color>
+</state>
+## END STATE OBJECT
 ## START STATE TRANSITION OBJECT
 <transition>
    <attributes>
@@ -1665,10 +1582,10 @@ request data
             </status>
          </resetval>
          <x2Obj>
-         529
+         607
          </x2Obj>
          <y2Obj>
-         -463
+         -153
          </y2Obj>
          <page>
          1
@@ -1676,40 +1593,40 @@ request data
       </equation>
    </attributes>
    <startState>
-   javascript
+   Telegram Bot
    </startState>
    <endState>
-   php
+   Telegram Group Chat
    </endState>
    <startPtX>
-   331.0
+   366.0
    </startPtX>
    <startPtY>
-   465.0
+   83.0
    </startPtY>
    <endPtX>
-   505.0
+   309.0
    </endPtX>
    <endPtY>
-   458.0
+   216.0
    </endPtY>
    <startCtrlPtX>
-   381.0
+   349.0
    </startCtrlPtX>
    <startCtrlPtY>
-   412.0
+   128.0
    </startCtrlPtY>
    <endCtrlPtY>
-   467.0
+   341.0
    </endCtrlPtY>
    <endCtrlPtY>
-   415.0
+   151.0
    </endCtrlPtY>
    <startStateIndex>
-   35
+   16
    </startStateIndex>
    <endStateIndex>
-   19
+   32
    </endStateIndex>
    <page>
    1
@@ -1746,18 +1663,89 @@ request data
    </stub>
 </transition>
 ## END STATE TRANSITION OBJECT
-<textObj>
-request data
-   <x>
-   390
-   </x>
-   <y>
-   422
-   </y>
+## START STATE OBJECT
+<state>
+   <attributes>
+      <name>
+            <status>
+            ABS
+            </status>
+         <value>
+         state4
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         1
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         def_type
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </name>
+   </attributes>
+   <x0>
+   -130
+   </x0>
+   <y0>
+   216
+   </y0>
+   <x1>
+   0
+   </x1>
+   <y1>
+   346
+   </y1>
+   <reset>
+   false
+   </reset>
    <page>
    1
    </page>
-</textObj>
+   <color>
+   -16777216
+   </color>
+</state>
+## END STATE OBJECT
 ## START STATE TRANSITION OBJECT
 <transition>
    <attributes>
@@ -1864,10 +1852,10 @@ request data
             </status>
          </resetval>
          <x2Obj>
-         526
+         847
          </x2Obj>
          <y2Obj>
-         -484
+         -292
          </y2Obj>
          <page>
          1
@@ -1875,40 +1863,40 @@ request data
       </equation>
    </attributes>
    <startState>
-   php
+   state4
    </startState>
    <endState>
-   javascript
+   Telegram Group Chat
    </endState>
    <startPtX>
-   505.0
+   0.0
    </startPtX>
    <startPtY>
-   481.0
+   292.0
    </startPtY>
    <endPtX>
-   331.0
+   203.0
    </endPtX>
    <endPtY>
-   488.0
+   290.0
    </endPtY>
    <startCtrlPtX>
-   474.0
+   36.0
    </startCtrlPtX>
    <startCtrlPtY>
-   514.0
+   334.0
    </startCtrlPtY>
    <endCtrlPtY>
-   376.0
+   152.0
    </endCtrlPtY>
    <endCtrlPtY>
-   539.0
+   327.0
    </endCtrlPtY>
    <startStateIndex>
-   17
+   1
    </startStateIndex>
    <endStateIndex>
-   1
+   15
    </endStateIndex>
    <page>
    1
@@ -1945,19 +1933,7 @@ request data
    </stub>
 </transition>
 ## END STATE TRANSITION OBJECT
-<textObj>
-return data
-   <x>
-   396
-   </x>
-   <y>
-   531
-   </y>
-   <page>
-   1
-   </page>
-</textObj>
-## START LOOPBACK TRANSITION OBJECT
+## START STATE TRANSITION OBJECT
 <transition>
    <attributes>
       <name>
@@ -2063,10 +2039,10 @@ return data
             </status>
          </resetval>
          <x2Obj>
-         -207
+         841
          </x2Obj>
          <y2Obj>
-         -347
+         -284
          </y2Obj>
          <page>
          1
@@ -2074,40 +2050,40 @@ return data
       </equation>
    </attributes>
    <startState>
-   javascript
+   Telegram Group Chat
    </startState>
    <endState>
-   javascript
+   state4
    </endState>
    <startPtX>
-   202.0
+   198.0
    </startPtX>
    <startPtY>
-   465.0
+   235.0
    </startPtY>
    <endPtX>
-   244.0
+   -15.0
    </endPtX>
    <endPtY>
-   415.0
+   239.0
    </endPtY>
    <startCtrlPtX>
-   110.0
+   154.0
    </startCtrlPtX>
    <startCtrlPtY>
-   400.0
+   192.0
    </startCtrlPtY>
    <endCtrlPtY>
-   222.0
+   55.0
    </endCtrlPtY>
    <endCtrlPtY>
-   333.0
+   172.0
    </endCtrlPtY>
    <startStateIndex>
-   19
+   20
    </startStateIndex>
    <endStateIndex>
-   25
+   32
    </endStateIndex>
    <page>
    1
@@ -2115,21 +2091,60 @@ return data
    <color>
    -16777216
    </color>
+   <pageSX>
+   0.0
+   </pageSX>
+   <pageSY>
+   0.0
+   </pageSY>
+   <pageSCX>
+   0.0
+   </pageSCX>
+   <pageSCY>
+   0.0
+   </pageSCY>
+   <pageEX>
+   0.0
+   </pageEX>
+   <pageEY>
+   0.0
+   </pageEY>
+   <pageECX>
+   0.0
+   </pageECX>
+   <pageECY>
+   0.0
+   </pageECY>
+   <stub>
+   false
+   </stub>
 </transition>
-## START LOOPBACK TRANSITION OBJECT
+## END STATE TRANSITION OBJECT
 <textObj>
-data visualization with chart.js
+sendData()
    <x>
-   112
+   66
    </x>
    <y>
-   372
+   334
    </y>
    <page>
    1
    </page>
 </textObj>
-## START STATE TRANSITION OBJECT
+<textObj>
+getUpdates()
+   <x>
+   66
+   </x>
+   <y>
+   191
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
+## START LOOPBACK TRANSITION OBJECT
 <transition>
    <attributes>
       <name>
@@ -2235,10 +2250,10 @@ data visualization with chart.js
             </status>
          </resetval>
          <x2Obj>
-         577
+         709
          </x2Obj>
          <y2Obj>
-         -306
+         -405
          </y2Obj>
          <page>
          1
@@ -2246,744 +2261,40 @@ data visualization with chart.js
       </equation>
    </attributes>
    <startState>
-   javascript
+   Telegram Group Chat
    </startState>
    <endState>
-   python
+   Telegram Group Chat
    </endState>
    <startPtX>
-   289.0
+   260.0
    </startPtX>
    <startPtY>
-   415.0
-   </startPtY>
-   <endPtX>
-   427.0
-   </endPtX>
-   <endPtY>
-   206.0
-   </endPtY>
-   <startCtrlPtX>
-   340.0
-   </startCtrlPtX>
-   <startCtrlPtY>
-   351.0
-   </startCtrlPtY>
-   <endCtrlPtY>
-   405.0
-   </endCtrlPtY>
-   <endCtrlPtY>
-   258.0
-   </endCtrlPtY>
-   <startStateIndex>
-   29
-   </startStateIndex>
-   <endStateIndex>
-   13
-   </endStateIndex>
-   <page>
-   1
-   </page>
-   <color>
-   -16777216
-   </color>
-   <pageSX>
-   0.0
-   </pageSX>
-   <pageSY>
-   0.0
-   </pageSY>
-   <pageSCX>
-   0.0
-   </pageSCX>
-   <pageSCY>
-   0.0
-   </pageSCY>
-   <pageEX>
-   0.0
-   </pageEX>
-   <pageEY>
-   0.0
-   </pageEY>
-   <pageECX>
-   0.0
-   </pageECX>
-   <pageECY>
-   0.0
-   </pageECY>
-   <stub>
-   false
-   </stub>
-</transition>
-## END STATE TRANSITION OBJECT
-<textObj>
-js periodically send to  php req to exec the py script
-   <x>
-   272
-   </x>
-   <y>
-   296
-   </y>
-   <page>
-   1
-   </page>
-</textObj>
-## START STATE TRANSITION OBJECT
-<transition>
-   <attributes>
-      <name>
-            <status>
-            ABS
-            </status>
-         <value>
-         trans8
-            <status>
-            LOCAL
-            </status>
-         </value>
-         <vis>
-         0
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         0
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </name>
-      <equation>
-            <status>
-            ABS
-            </status>
-         <value>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </value>
-         <vis>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         -282
-         </x2Obj>
-         <y2Obj>
-         -147
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </equation>
-   </attributes>
-   <startState>
-   webPage
-   </startState>
-   <endState>
-   python
-   </endState>
-   <startPtX>
-   142.0
-   </startPtX>
-   <startPtY>
-   165.0
-   </startPtY>
-   <endPtX>
-   404.0
-   </endPtX>
-   <endPtY>
-   157.0
-   </endPtY>
-   <startCtrlPtX>
-   200.0
-   </startCtrlPtX>
-   <startCtrlPtY>
-   212.0
-   </startCtrlPtY>
-   <endCtrlPtY>
-   364.0
-   </endCtrlPtY>
-   <endCtrlPtY>
-   179.0
-   </endCtrlPtY>
-   <startStateIndex>
-   1
-   </startStateIndex>
-   <endStateIndex>
-   18
-   </endStateIndex>
-   <page>
-   1
-   </page>
-   <color>
-   -16777216
-   </color>
-   <pageSX>
-   0.0
-   </pageSX>
-   <pageSY>
-   0.0
-   </pageSY>
-   <pageSCX>
-   0.0
-   </pageSCX>
-   <pageSCY>
-   0.0
-   </pageSCY>
-   <pageEX>
-   0.0
-   </pageEX>
-   <pageEY>
-   0.0
-   </pageEY>
-   <pageECX>
-   0.0
-   </pageECX>
-   <pageECY>
-   0.0
-   </pageECY>
-   <stub>
-   false
-   </stub>
-</transition>
-## END STATE TRANSITION OBJECT
-<textObj>
-login (selenium)
-   <x>
-   229
-   </x>
-   <y>
-   94
-   </y>
-   <page>
-   1
-   </page>
-</textObj>
-## START STATE TRANSITION OBJECT
-<transition>
-   <attributes>
-      <name>
-            <status>
-            ABS
-            </status>
-         <value>
-         trans10
-            <status>
-            LOCAL
-            </status>
-         </value>
-         <vis>
-         0
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         0
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </name>
-      <equation>
-            <status>
-            ABS
-            </status>
-         <value>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </value>
-         <vis>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         231
-         </x2Obj>
-         <y2Obj>
-         -398
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </equation>
-   </attributes>
-   <startState>
-   DB
-   </startState>
-   <endState>
-   php
-   </endState>
-   <startPtX>
-   775.0
-   </startPtX>
-   <startPtY>
-   332.0
-   </startPtY>
-   <endPtX>
-   619.0
-   </endPtX>
-   <endPtY>
-   428.0
-   </endPtY>
-   <startCtrlPtX>
-   727.0
-   </startCtrlPtX>
-   <startCtrlPtY>
    323.0
-   </startCtrlPtY>
-   <endCtrlPtY>
-   668.0
-   </endCtrlPtY>
-   <endCtrlPtY>
-   329.0
-   </endCtrlPtY>
-   <startStateIndex>
-   14
-   </startStateIndex>
-   <endStateIndex>
-   32
-   </endStateIndex>
-   <page>
-   1
-   </page>
-   <color>
-   -16777216
-   </color>
-   <pageSX>
-   0.0
-   </pageSX>
-   <pageSY>
-   0.0
-   </pageSY>
-   <pageSCX>
-   0.0
-   </pageSCX>
-   <pageSCY>
-   0.0
-   </pageSCY>
-   <pageEX>
-   0.0
-   </pageEX>
-   <pageEY>
-   0.0
-   </pageEY>
-   <pageECX>
-   0.0
-   </pageECX>
-   <pageECY>
-   0.0
-   </pageECY>
-   <stub>
-   false
-   </stub>
-</transition>
-## END STATE TRANSITION OBJECT
-<textObj>
-send data
-   <x>
-   705
-   </x>
-   <y>
-   326
-   </y>
-   <page>
-   1
-   </page>
-</textObj>
-<textObj>
-(xampp)
-   <x>
-   802
-   </x>
-   <y>
-   302
-   </y>
-   <page>
-   1
-   </page>
-</textObj>
-<textObj>
-(backend)
-   <x>
-   550
-   </x>
-   <y>
-   477
-   </y>
-   <page>
-   1
-   </page>
-</textObj>
-## START STATE OBJECT
-<state>
-   <attributes>
-      <name>
-            <status>
-            ABS
-            </status>
-         <value>
-         state5
-            <status>
-            LOCAL
-            </status>
-         </value>
-         <vis>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         0
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </name>
-   </attributes>
-   <x0>
-   932
-   </x0>
-   <y0>
-   226
-   </y0>
-   <x1>
-   1062
-   </x1>
-   <y1>
-   356
-   </y1>
-   <reset>
-   false
-   </reset>
-   <page>
-   1
-   </page>
-   <color>
-   -16777216
-   </color>
-</state>
-## END STATE OBJECT
-## START STATE TRANSITION OBJECT
-<transition>
-   <attributes>
-      <name>
-            <status>
-            ABS
-            </status>
-         <value>
-         trans11
-            <status>
-            LOCAL
-            </status>
-         </value>
-         <vis>
-         0
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         0
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </name>
-      <equation>
-            <status>
-            ABS
-            </status>
-         <value>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </value>
-         <vis>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         29
-         </x2Obj>
-         <y2Obj>
-         -273
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </equation>
-   </attributes>
-   <startState>
-   DB
-   </startState>
-   <endState>
-   state5
-   </endState>
-   <startPtX>
-   881.0
-   </startPtX>
-   <startPtY>
-   258.0
    </startPtY>
    <endPtX>
-   940.0
+   309.0
    </endPtX>
    <endPtY>
-   258.0
+   299.0
    </endPtY>
    <startCtrlPtX>
-   900.0
+   267.0
    </startCtrlPtX>
    <startCtrlPtY>
-   243.0
+   397.0
    </startCtrlPtY>
    <endCtrlPtY>
-   920.0
+   353.0
    </endCtrlPtY>
    <endCtrlPtY>
-   241.0
+   348.0
    </endCtrlPtY>
    <startStateIndex>
-   33
+   9
    </startStateIndex>
    <endStateIndex>
-   21
+   4
    </endStateIndex>
    <page>
    1
@@ -2991,220 +2302,42 @@ send data
    <color>
    -16777216
    </color>
-   <pageSX>
-   0.0
-   </pageSX>
-   <pageSY>
-   0.0
-   </pageSY>
-   <pageSCX>
-   0.0
-   </pageSCX>
-   <pageSCY>
-   0.0
-   </pageSCY>
-   <pageEX>
-   0.0
-   </pageEX>
-   <pageEY>
-   0.0
-   </pageEY>
-   <pageECX>
-   0.0
-   </pageECX>
-   <pageECY>
-   0.0
-   </pageECY>
-   <stub>
-   false
-   </stub>
 </transition>
-## END STATE TRANSITION OBJECT
-## START STATE TRANSITION OBJECT
-<transition>
-   <attributes>
-      <name>
-            <status>
-            ABS
-            </status>
-         <value>
-         trans14
-            <status>
-            LOCAL
-            </status>
-         </value>
-         <vis>
-         0
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         0
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </name>
-      <equation>
-            <status>
-            ABS
-            </status>
-         <value>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </value>
-         <vis>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         27
-         </x2Obj>
-         <y2Obj>
-         -298
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </equation>
-   </attributes>
-   <startState>
-   state5
-   </startState>
-   <endState>
-   DB
-   </endState>
-   <startPtX>
-   935.0
-   </startPtX>
-   <startPtY>
-   313.0
-   </startPtY>
-   <endPtX>
-   886.0
-   </endPtX>
-   <endPtY>
-   313.0
-   </endPtY>
-   <startCtrlPtX>
-   936.0
-   </startCtrlPtX>
-   <startCtrlPtY>
-   322.0
-   </startCtrlPtY>
-   <endCtrlPtY>
-   910.0
-   </endCtrlPtY>
-   <endCtrlPtY>
-   327.0
-   </endCtrlPtY>
-   <startStateIndex>
-   16
-   </startStateIndex>
-   <endStateIndex>
-   2
-   </endStateIndex>
+## START LOOPBACK TRANSITION OBJECT
+<textObj>
+
+   <x>
+   239
+   </x>
+   <y>
+   393
+   </y>
    <page>
    1
    </page>
-   <color>
-   -16777216
-   </color>
-   <pageSX>
-   0.0
-   </pageSX>
-   <pageSY>
-   0.0
-   </pageSY>
-   <pageSCX>
-   0.0
-   </pageSCX>
-   <pageSCY>
-   0.0
-   </pageSCY>
-   <pageEX>
-   0.0
-   </pageEX>
-   <pageEY>
-   0.0
-   </pageEY>
-   <pageECX>
-   0.0
-   </pageECX>
-   <pageECY>
-   0.0
-   </pageECY>
-   <stub>
-   false
-   </stub>
-</transition>
-## END STATE TRANSITION OBJECT
+</textObj>
+<textObj>
+if (data)
+   <x>
+   270
+   </x>
+   <y>
+   375
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
+<textObj>
+sendMsg(Chat)
+   <x>
+   278
+   </x>
+   <y>
+   386
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
 ## END OBJECTS
