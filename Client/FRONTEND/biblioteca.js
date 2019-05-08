@@ -50,7 +50,7 @@ $(document).ready(function() {
   //funzione per ottenere le statistiche
   function getStats(){
     var dataToSend="stats";
-    $.post("../BACKEND/prova.php?request=ottieni_statistiche", dataToSend, function(data) {//richiede al server i dati sui giotni più/meno affollati e l'ora_di_punta
+    $.post("../BACKEND/biblioteca.php?request=ottieni_statistiche", dataToSend, function(data) {//richiede al server i dati sui giotni più/meno affollati e l'ora_di_punta
       if(data.status === "error") {
         console.log("errore durante il lancio dello script");
       } else {
@@ -293,7 +293,7 @@ $(document).ready(function() {
       var dataToSend = {
         todo: "update server"
       };
-      $.post("../BACKEND/prova.php?request=ottieni_dati", dataToSend, function(data) {
+      $.post("../BACKEND/biblioteca.php?request=ottieni_dati", dataToSend, function(data) {
         if(data.status === "error") {
           console.log("errore durante il lancio dello script");
         } else if(data.length > 0){
@@ -454,7 +454,7 @@ $(document).ready(function() {
   //function to ask php to launch the script PYTHON
   function launchScript(){
     var dataToSend="stats";
-    $.post("../BACKEND/prova.php?request=lancia_script", dataToSend, function(data) {
+    $.post("../BACKEND/biblioteca.php?request=lancia_script", dataToSend, function(data) {
       if(data.status === "error") {
         console.log("Errore durante il lancio dello script");
       } else {
@@ -492,7 +492,7 @@ $(document).ready(function() {
   //funzione che richiede al server le segnalazioni riguardanti il giorno odierno
   function checkError(){
     var dataToSend="check";
-    $.post("../BACKEND/prova.php?request=ottieni_segnalazioni", dataToSend, function(data) {
+    $.post("../BACKEND/biblioteca.php?request=ottieni_segnalazioni", dataToSend, function(data) {
       if(data.status === "error") {
         console.log("Errore durante il lancio dello script");
       } else {
@@ -511,7 +511,7 @@ $(document).ready(function() {
   //funzione che inizialmente va a mettere nel database lo stato della biblioteca ad aperto
   function apriBiblioteca(){
     var dataToSend="stats";
-    $.post("../BACKEND/prova.php?request=apri_biblioteca", dataToSend, function(data) {
+    $.post("../BACKEND/biblioteca.php?request=apri_biblioteca", dataToSend, function(data) {
       if(data.status === "error") {
         console.log("Errore durante il lancio dello script");
       } else {
