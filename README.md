@@ -15,7 +15,7 @@ Manuale -> attraverso i comandi verso il bot Telegram si può cambiare a piacere
 
 -BackEnd-
 
-Tecnologie usate: php, python(selenium, pyTelegramBOTapi), mysql
+Tecnologie usate: php, python(selenium, pyTelegramBotAPI), mysql
 
 
 php:
