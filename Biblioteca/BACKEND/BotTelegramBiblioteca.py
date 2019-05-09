@@ -15,14 +15,15 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 #getdate istance
 now = datetime.datetime.now()
+#
 #all'avvio del bot inserisco il fatto che la biblioteca è aperta
-stato_biblioteca="la biblioteca è aperta"
-date = str(now.year) + '-' + str(now.month).zfill(2) + '-' + str(now.day).zfill(2)
-sql = "INSERT IGNORE INTO stato_biblioteca (data, stato) VALUES (%s ,%s)"
-val = (str(date), stato_biblioteca)
-mycursor.execute(sql, val)
-mydb.commit()
-print(mycursor.rowcount, "record inserted.")    
+#stato_biblioteca="la biblioteca è aperta"
+#date = str(now.year) + '-' + str(now.month).zfill(2) + '-' + str(now.day).zfill(2)
+#sql = "INSERT IGNORE INTO stato_biblioteca (data, stato) VALUES (%s ,%s)"
+#val = (str(date), stato_biblioteca)
+#mycursor.execute(sql, val)
+#mydb.commit()
+#print(mycursor.rowcount, "record inserted.")
 #
 #token del bot telegram
 bot_token = '832858084:AAGDIIfF5OtaSYzkTKQjlHdw4ITelnbGW2E'
@@ -39,6 +40,8 @@ def send_welcome(message):
     myresult=mycursor.fetchall()
     for x in myresult:
         print(x)
+    if(len(myresult) == 0):
+        myresult = "la biblioteca è chiusa"
     bot.reply_to(message, myresult)
 #cambia lo stato della biblioteca da chiuso ad aperto (solo per i responsabili)
 @bot.message_handler(commands=['apri'])

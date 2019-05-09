@@ -21,7 +21,7 @@ $(document).ready(function() {
     //chiudi il bot telegram
   });
   //Apri biblioteca
-  apriBiblioteca();
+  //apriBiblioteca();
   //displayTime
   displayTime();setInterval(function(){displayTime();}, 60000);
   //funzione che modifica il contatore delle persone
@@ -39,7 +39,7 @@ $(document).ready(function() {
   updateCharts();
   getStats();
   setInterval(function(){updateCharts();getStats();}, 30000);
-  //launchScript(); //////////TOGLI COMMENTO DOPO
+  launchScript();
   setInterval(function(){launchScript();}, 1200000);
   //funzione che controlla se ci sono delle segnalazioni da riferire
   setInterval(function(){checkError();},30000);
@@ -508,7 +508,7 @@ $(document).ready(function() {
       }
     });
   }
-  //funzione che inizialmente va a mettere nel database lo stato della biblioteca ad aperto
+  //funzione che va a mettere nel database lo stato della biblioteca ad aperto (lo fa php, qua lo richiedo)
   function apriBiblioteca(){
     var dataToSend="stats";
     $.post("../BACKEND/biblioteca.php?request=apri_biblioteca", dataToSend, function(data) {
