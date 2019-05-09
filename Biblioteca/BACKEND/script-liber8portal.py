@@ -119,7 +119,7 @@ print(mycursor.rowcount, "record inserted.")
 ###insert nella tabella segnalationi se non vi sono persone
 if(persone_in == 0 and persone_out == 0 and (hour != "17:00" or hour != "18:00" or hour != "16:00")):
     sql = "INSERT IGNORE INTO segnalazione (ora, data, segnalazione) VALUES (%s ,%s, %s)"
-    val = (str(hour), str(date), "warning: la biblioteca risulta chiusa/vuota")
+    val = (str(hour), str(date), "avviso: la biblioteca risulta chiusa/vuota")
     mycursor.execute(sql, val)
     mydb.commit()
     print(mycursor.rowcount, "segnalation inserted.")
