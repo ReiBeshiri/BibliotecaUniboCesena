@@ -27,17 +27,38 @@ if (!$return) {
 
     case 'apri_biblioteca':
 
-      exec("python ./BotTelegramBiblioteca.py", $output, $return);
-      // Return will return non-zero upon an error
-      if (!$return) {
-          $response_array = "script launched Successfully"; //
-      } else {
-          //in case the return is zero
-          $response_array = "error";
-          //should return the error
-          //var_dump($output);
-          //var_dump($return);
+      $stato = "biblioteca aperta";
+      $dt = date("Y-m-d");
+
+      $stmt = $mysqli->prepare("INSERT IGNORE INTO stato_biblioteca (data, stato) VALUES (? ,?)");
+      $stmt->bind_param('ss', $dt, $stato);
+      if($stmt === false){
+        $response_array['status'] = "error";
+        print json_encode($response_array);
+        die();
       }
+
+      $stmt->execute();
+      $response_array="done";
+      print json_encode($response_array);
+      die();
+      break;
+
+    case 'chiudi_biblioteca':
+
+      $stato = "biblioteca chiusa";
+      $dt = date("Y-m-d");
+
+      $stmt = $mysqli->prepare("INSERT IGNORE INTO stato_biblioteca (data, stato) VALUES (? ,?)");
+      $stmt->bind_param('ss', $dt, $stato);
+      if($stmt === false){
+        $response_array['status'] = "error";
+        print json_encode($response_array);
+        die();
+      }
+
+      $stmt->execute();
+      $response_array="done";
       print json_encode($response_array);
       die();
       break;

@@ -45,6 +45,10 @@ $(document).ready(function() {
   setInterval(function(){checkError();},30000);
   //console.log(screen.width);
   //console.log(screen.height);
+  ////funzioni per aprire/chiudere la biblioteca
+  apriBiblioteca();
+  setInterval(function(){apriBiblioteca();},1800000); //apro la biblioteca, effetto che vale dalle 8:00 alle 9:59
+  setInterval(function(){chiudiBiblioteca();},600000); //chiudo la biblioteca, effetto che vale dalle 17:00 alle 17:59 lun-gio, dalle 14:00 alle 14:59 ven
 });
   /*FUNZIONI*/
   //funzione per ottenere le statistiche
@@ -508,14 +512,39 @@ $(document).ready(function() {
       }
     });
   }
-  //funzione che va a mettere nel database lo stato della biblioteca ad aperto (lo fa php, qua lo richiedo)
+  //funzione che va a mettere nel database lo stato della biblioteca ad aperto (lo fa php, qua lo richiedo) solo se lun-ven
   function apriBiblioteca(){
-    var dataToSend="stats";
-    $.post("../BACKEND/biblioteca.php?request=apri_biblioteca", dataToSend, function(data) {
-      if(data.status === "error") {
-        console.log("Errore durante il lancio dello script");
-      } else {
-        console.log("Biblioteca aperta");
-      }
-    });
+    if(new Date().getDay() < 6 && new Date().getHours() <= 9 && new Date().getHours() >= 8){ //ignoro sabato e domenica
+      var dataToSend="stats";
+      $.post("../BACKEND/biblioteca.php?request=apri_biblioteca", dataToSend, function(data) {
+        if(data.status === "error") {
+          console.log("Errore durante il lancio dello script");
+        } else {
+          console.log("Biblioteca aperta");
+        }
+      });
+    }
+  }
+  //funzione che va a mettere nel database lo stato della biblioteca a chiuso
+  function chiudiBiblioteca(){
+    var dt = new Date().getHours();
+    if(dt.getDay() === 5 && dt.getHours() === 14){
+      var dataToSend="stats";
+      $.post("../BACKEND/biblioteca.php?request=chiudi_biblioteca", dataToSend, function(data) {
+        if(data.status === "error") {
+          console.log("Errore durante il lancio dello script");
+        } else {
+          console.log("Biblioteca chiusa");
+        }
+      });
+    } else if(dt.getDay() < 5 && dt.getHours() === 17){
+      var dataToSend="stats";
+      $.post("../BACKEND/biblioteca.php?request=chiudi_biblioteca", dataToSend, function(data) {
+        if(data.status === "error") {
+          console.log("Errore durante il lancio dello script");
+        } else {
+          console.log("Biblioteca chiusa");
+        }
+      });
+    }
   }
