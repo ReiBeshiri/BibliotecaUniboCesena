@@ -4,3 +4,7 @@ Il thread "ThreadPrivateChat" esegue un polling nella getUpdate, ovvero si prend
 
 Il thread "ThreadGroupChat" serve ad informare il gruppo quando ci sono segnalazioni dal server (messaggio inviato nel gruppo in broadcast tramite la chat ID del gruppo).
 
+
+
+"ThreadPrivateChat" -> risponde solo alle richieste effettuate dagli utenti.
+"ThreadGroupChat"   -> non c'è nessun tipo di interazione con l'utente

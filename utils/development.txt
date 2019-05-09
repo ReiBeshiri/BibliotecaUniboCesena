@@ -1,6 +1,5 @@
-1)esegui il login su liber8portal con selenium
-2)download con bs4 la pagina web
-	a)download html page
+1)esegui il login su liber8portal con selenium e naviga
+2)download csv-ish file
 3)ottieni consistent data dal file parsato
 	b)per consistenza dei dati(da tenere in un database interno) (nota2)
 4)data analysis -> strutturazione analisi e suggerimenti (es. biblioteca piena a gennaio)
@@ -18,7 +17,3 @@ nota2: database mysql con xampp locale -> data(ID, data, ora, file) -> file può 
 	file-> raw data -> lun(11/01/2019) 208 persone, mar(12/01/2019) 153 persone ...
 			   persone in biblioteca ora -> 56
 	       man data -> statistiche
-
-
-FILE-> vedi se nel db mettere il percorso di un txt o effettivamente fare:
-	ID	data	ora	personeEntrate	personeUscite
