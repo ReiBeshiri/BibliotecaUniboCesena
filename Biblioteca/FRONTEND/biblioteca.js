@@ -47,7 +47,7 @@ $(document).ready(function() {
   //console.log(screen.height);
   ////funzioni per aprire/chiudere la biblioteca
   apriBiblioteca();
-  setInterval(function(){apriBiblioteca();},1800000); //apro la biblioteca, effetto che vale dalle 8:00 alle 9:59
+  setInterval(function(){apriBiblioteca();},600000); //apro la biblioteca, effetto che vale dalle 8:30 alle 8:59
   setInterval(function(){chiudiBiblioteca();},600000); //chiudo la biblioteca, effetto che vale dalle 17:00 alle 17:59 lun-gio, dalle 14:00 alle 14:59 ven
 });
   /*FUNZIONI*/
@@ -514,7 +514,8 @@ $(document).ready(function() {
   }
   //funzione che va a mettere nel database lo stato della biblioteca ad aperto (lo fa php, qua lo richiedo) solo se lun-ven
   function apriBiblioteca(){
-    if(new Date().getDay() < 6 && new Date().getHours() <= 9 && new Date().getHours() >= 8){ //ignoro sabato e domenica
+    var dt = new Date();
+    if(dt.getDay() < 6 && dt.getHours() === 8 && dt.getMinutes() >= 30){ //ignoro sabato e domenica
       var dataToSend="stats";
       $.post("../BACKEND/biblioteca.php?request=apri_biblioteca", dataToSend, function(data) {
         if(data.status === "error") {
