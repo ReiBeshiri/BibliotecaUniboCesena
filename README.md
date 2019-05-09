@@ -36,3 +36,9 @@ BotTelegramBiblioteca:
 
 Script in python che avvia il bot Telegram rendendolo operativo alle richieste da parte degli utenti.
 Inoltre esegue autonomamente operazioni di aggiornamento riguardo lo stato dei gate all’entrata della biblioteca.
+
+----------------------------------------------------------------------------------------------------
+
+Nome Bot Telegram: BotBibliotecaUniboCesena
+
+Usare il comando /stato per sapere se la biblioteca è aperta oppure chiusa
