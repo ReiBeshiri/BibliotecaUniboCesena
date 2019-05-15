@@ -1,4 +1,4 @@
-## File last modified by Fizzim: 16.54.06 on 08/05/19
+## File last modified by Fizzim: 10.41.08 on 13/05/19
 <version>
    14.02.26
 </version>
@@ -299,7 +299,7 @@
 </tabs>
 ## START PREFERENCES
 <SCounter>
-6
+7
 </SCounter>
 <TCounter>
 15
@@ -404,7 +404,7 @@ fzm_globalTable
          0
          </x2Obj>
          <y2Obj>
-         32
+         25
          </y2Obj>
          <page>
          1
@@ -415,13 +415,13 @@ fzm_globalTable
    13
    </x0>
    <y0>
-   89
+   87
    </y0>
    <x1>
    143
    </x1>
    <y1>
-   219
+   217
    </y1>
    <reset>
    false
@@ -649,7 +649,7 @@ fzm_globalTable
    142.0
    </endPtX>
    <endPtY>
-   142.0
+   140.0
    </endPtY>
    <startCtrlPtX>
    300.0
@@ -661,7 +661,7 @@ fzm_globalTable
    210.0
    </endCtrlPtY>
    <endCtrlPtY>
-   84.0
+   82.0
    </endCtrlPtY>
    <startStateIndex>
    20
@@ -2454,7 +2454,7 @@ js periodically send to  php req to exec the py script
    142.0
    </startPtX>
    <startPtY>
-   165.0
+   163.0
    </startPtY>
    <endPtX>
    404.0
@@ -2466,7 +2466,7 @@ js periodically send to  php req to exec the py script
    200.0
    </startCtrlPtX>
    <startCtrlPtY>
-   212.0
+   210.0
    </startCtrlPtY>
    <endCtrlPtY>
    364.0
@@ -3207,4 +3207,16 @@ send data
    </stub>
 </transition>
 ## END STATE TRANSITION OBJECT
+<textObj>
+Liber8portal
+   <x>
+   52
+   </x>
+   <y>
+   162
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
 ## END OBJECTS
