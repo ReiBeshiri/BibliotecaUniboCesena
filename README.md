@@ -40,5 +40,10 @@ Inoltre esegue autonomamente operazioni di aggiornamento riguardo lo stato dei g
 ----------------------------------------------------------------------------------------------------
 
 Nome Bot Telegram: BotBibliotecaUniboCesena
+-Usare il comando "/stato" per sapere se la biblioteca è aperta oppure chiusa
 
-Usare il comando /stato per sapere se la biblioteca è aperta oppure chiusa
+Gruppo Biblioteca per i responsabili:
+-Link di invito al gruppo: "https://t.me/joinchat/lj3ZSBcJSvVmnlZrS_jl1g"
+-Comando per rendere la biblioteca aperta: "/apri"
+-Comando per rendere la biblioteca chiusa: "/chiudi"
+-Avviso relativo ad un eventuale problema ogni 3 ore
