@@ -1,0 +1,29 @@
+Gate info:
+
+If multiple gates are arranged with short distances (1-8m) between each other, these will
+mutually interfere with each other. In this case, the readers for the individual gates have to
+be synchronized and run in one of the automatic modes.
+The antenna should be at least 50 cm away from metal parts.
+If multiple gates are operated at the same time at a distance of less than 8 m, the Readers
+must by synchronized. See Application Note Synchronizing RFID Long Range Readers using
+the digital in-/outputs (N10311-xe-ID-B.pdf).
+A door (including glass doors), a curtain and in particular automatic doors or other moving objects
+can influence the counting of the People Counter much (p26).
+If two people (or moving objects) move, simultaneously, in the detection area of one radar sensor,
+usually, is counted one person, only. 
+The minimum distance between two people, so that these people are detected separately, as a
+function of the adjusted sensitivity and position in the passage is 60 cm to 130 cm.
+Software config (tuning ) p.40 after config:
+If the values are not proper, check the following:
+• Are the ring cores installed in the antenna cable?
+• Are other RFID systems installed closed by?
+• Are there large metal parts close to the antenna (distance < 1.0 m)?
+• Are there devices nearby which may emit noise interferences (larger machines or wireless
+devices)?
+• Are there interferences from the mains?
+The Counter values in the display will be updated every 30 seconds.
+The gate has to be used in one of the Automatic Modes (Buffered Read, Notification
+or Scan Mode) to get a maximum performance. Otherwise the reading performance
+will be significantly reduced.
+By people with small distances, due to interferences, and by cross traffic, can vary the determined
+values of the actual values. 

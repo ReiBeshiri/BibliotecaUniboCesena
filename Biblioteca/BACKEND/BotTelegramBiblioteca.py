@@ -82,9 +82,9 @@ def ThreadGroupChat():
 		for x in myresult:
 			print(x)
 		print(len(myresult))
-        if(len(myresult) >= 3 and len(myresult)%2 == 1):#avviso di segnalazione ogni due ore
+        if(len(myresult) >= 3 and len(myresult)%2 == 1 and now.hour < 18):#avviso di segnalazione ogni due ore
             bot.send_message("-386484981", "avviso: la biblioteca risulta chiusa/vuota") #chat-id gruppo:386484981-> per inviare un messaggio in broadcast al gruppo telegram
-		time.sleep(30)
+		time.sleep(60)
 
 #creo le istanze dei thread per il bot, successivamente lancio i thread
 threadPrivateChat = threading.Thread(target=ThreadPrivateChat, args=[])
