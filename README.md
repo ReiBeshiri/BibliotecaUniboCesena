@@ -3,7 +3,7 @@ BibliotecaUniboCesena
 
 -FrontEnd-
 
-Tecnologie usate: html, js(chartjs, ajax)
+Tecnologie usate: html, css, js(chartjs, ajax)
 
 La pagina html contiene lo script js “biblioteca.js”, che mediante le funzioni “graphDay”, “graphWeek”, “graphMonth” e “graphYear” crea i grafici da visualizzare utilizzando la libreria ‘chartjs’.
 All’avvio della pagina viene mandata una richiesta AJAX per la richiesta dei dati relativi alle entrate e alle uscite. Le funzioni che richiedono i dati sono “updateCharts” e “getStats”.
